@@ -1,0 +1,3689 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Shivam Singh — Full Stack Developer specializing in Python, Django, DRF, WebSockets and scalable backend systems. 2+ years building production applications."
+    />
+    <title>Shivam Singh · Full Stack Developer</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cal+Sans&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;700&family=Outfit:wght@300;400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      /* ═══════════════════════════════════════
+   TOKENS
+═══════════════════════════════════════ */
+      :root {
+        --void: #050709;
+        --base: #080c14;
+        --surface-1: #0d1117;
+        --surface-2: #111827;
+        --surface-3: #1a2332;
+        --border: rgba(255, 255, 255, 0.06);
+        --border-lit: rgba(99, 179, 237, 0.25);
+
+        --indigo: #6366f1;
+        --indigo-lt: #818cf8;
+        --sky: #38bdf8;
+        --sky-lt: #7dd3fc;
+        --violet: #a78bfa;
+        --green: #34d399;
+        --amber: #fbbf24;
+        --rose: #fb7185;
+
+        --text: #f1f5f9;
+        --text-2: #94a3b8;
+        --text-3: #475569;
+
+        --r-sm: 8px;
+        --r-md: 12px;
+        --r-lg: 20px;
+        --r-xl: 28px;
+      }
+
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+      html {
+        scroll-behavior: smooth;
+        font-size: 16px;
+      }
+
+      body {
+        background: var(--base);
+        color: var(--text);
+        font-family: "Inter", sans-serif;
+        line-height: 1.65;
+        overflow-x: hidden;
+        -webkit-font-smoothing: antialiased;
+      }
+
+      /* ═══════════════════════════════════════
+   SCROLLBAR
+═══════════════════════════════════════ */
+      ::-webkit-scrollbar {
+        width: 4px;
+      }
+      ::-webkit-scrollbar-track {
+        background: var(--surface-1);
+      }
+      ::-webkit-scrollbar-thumb {
+        background: var(--indigo);
+        border-radius: 99px;
+      }
+
+      /* ═══════════════════════════════════════
+   NAV
+═══════════════════════════════════════ */
+      #nav {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 200;
+        height: 60px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0 clamp(20px, 5vw, 80px);
+        background: rgba(5, 7, 9, 0.75);
+        backdrop-filter: blur(20px) saturate(1.5);
+        border-bottom: 1px solid var(--border);
+        transition: background 0.3s;
+      }
+      .nav-logo {
+        font-family: "JetBrains Mono", monospace;
+        font-size: 0.85rem;
+        font-weight: 700;
+        color: var(--sky);
+        letter-spacing: 0.04em;
+        text-decoration: none;
+      }
+      .nav-logo em {
+        color: var(--text-3);
+        font-style: normal;
+      }
+      .nav-links {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        list-style: none;
+      }
+      .nav-links a {
+        color: var(--text-2);
+        font-size: 0.8rem;
+        font-weight: 500;
+        text-decoration: none;
+        padding: 6px 12px;
+        border-radius: var(--r-sm);
+        transition:
+          color 0.2s,
+          background 0.2s;
+      }
+      .nav-links a:hover {
+        color: var(--text);
+        background: rgba(255, 255, 255, 0.05);
+      }
+      .nav-hire {
+        padding: 7px 18px !important;
+        background: var(--indigo) !important;
+        color: white !important;
+        border-radius: var(--r-sm) !important;
+      }
+      .nav-hire:hover {
+        background: var(--indigo-lt) !important;
+      }
+      .nav-mobile-toggle {
+        display: none;
+        background: none;
+        border: 1px solid var(--border);
+        color: var(--text-2);
+        padding: 6px 10px;
+        border-radius: var(--r-sm);
+        cursor: pointer;
+        font-size: 0.9rem;
+      }
+
+      /* ═══════════════════════════════════════
+   GRID NOISE BG
+═══════════════════════════════════════ */
+      .grid-bg {
+        position: fixed;
+        inset: 0;
+        z-index: 0;
+        pointer-events: none;
+        background-image:
+          linear-gradient(rgba(99, 102, 241, 0.03) 1px, transparent 1px),
+          linear-gradient(90deg, rgba(99, 102, 241, 0.03) 1px, transparent 1px);
+        background-size: 40px 40px;
+      }
+
+      /* ═══════════════════════════════════════
+   ORBS / GLOW
+═══════════════════════════════════════ */
+      .orb {
+        position: fixed;
+        border-radius: 50%;
+        filter: blur(90px);
+        opacity: 0.14;
+        pointer-events: none;
+        z-index: 0;
+      }
+      .orb-1 {
+        width: 600px;
+        height: 600px;
+        background: var(--indigo);
+        top: -200px;
+        right: -200px;
+      }
+      .orb-2 {
+        width: 500px;
+        height: 500px;
+        background: var(--sky);
+        bottom: 0;
+        left: -200px;
+      }
+      .orb-3 {
+        width: 300px;
+        height: 300px;
+        background: var(--violet);
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        opacity: 0.07;
+      }
+
+      /* ═══════════════════════════════════════
+   LAYOUT UTILS
+═══════════════════════════════════════ */
+      .section {
+        padding: clamp(60px, 8vw, 120px) clamp(20px, 5vw, 80px);
+        position: relative;
+        z-index: 1;
+      }
+      .inner {
+        max-width: 1100px;
+        margin: 0 auto;
+      }
+      .section-badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        font-family: "JetBrains Mono", monospace;
+        font-size: 0.7rem;
+        text-transform: uppercase;
+        letter-spacing: 0.18em;
+        color: var(--sky);
+        padding: 5px 14px;
+        background: rgba(56, 189, 248, 0.08);
+        border: 1px solid rgba(56, 189, 248, 0.2);
+        border-radius: 99px;
+        margin-bottom: 20px;
+      }
+      .section-badge::before {
+        content: "";
+        width: 6px;
+        height: 6px;
+        border-radius: 50%;
+        background: var(--sky);
+        animation: pulse 2s infinite;
+      }
+      @keyframes pulse {
+        0%,
+        100% {
+          opacity: 1;
+          transform: scale(1);
+        }
+        50% {
+          opacity: 0.5;
+          transform: scale(0.7);
+        }
+      }
+
+      h2.sh {
+        font-family: "Outfit", sans-serif;
+        font-size: clamp(1.9rem, 3.5vw, 2.8rem);
+        font-weight: 800;
+        color: var(--text);
+        line-height: 1.15;
+        margin-bottom: 16px;
+      }
+      h2.sh span {
+        background: linear-gradient(135deg, var(--sky), var(--indigo-lt));
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+      .sub {
+        font-size: clamp(0.9rem, 1.5vw, 1.05rem);
+        color: var(--text-2);
+        max-width: 560px;
+        line-height: 1.75;
+        margin-bottom: 48px;
+      }
+
+      /* Glass card */
+      .glass {
+        background: rgba(17, 24, 39, 0.6);
+        backdrop-filter: blur(16px);
+        border: 1px solid var(--border);
+        border-radius: var(--r-lg);
+      }
+      .glass:hover {
+        border-color: rgba(99, 102, 241, 0.2);
+      }
+
+      /* Reveal animation */
+      .reveal {
+        opacity: 0;
+        transform: translateY(28px);
+        transition:
+          opacity 0.6s ease,
+          transform 0.6s ease;
+      }
+      .reveal.visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      /* ═══════════════════════════════════════
+   HERO
+═══════════════════════════════════════ */
+      #hero {
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        padding: 120px clamp(20px, 5vw, 80px) 80px;
+        position: relative;
+        z-index: 1;
+        overflow: hidden;
+      }
+      .hero-inner {
+        max-width: 1100px;
+        margin: 0 auto;
+        width: 100%;
+        display: grid;
+        grid-template-columns: 1fr 420px;
+        gap: 60px;
+        align-items: center;
+      }
+      .hero-available {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        font-size: 0.75rem;
+        color: var(--green);
+        background: rgba(52, 211, 153, 0.1);
+        border: 1px solid rgba(52, 211, 153, 0.25);
+        padding: 6px 14px;
+        border-radius: 99px;
+        margin-bottom: 24px;
+        font-weight: 500;
+      }
+      .hero-available span {
+        width: 7px;
+        height: 7px;
+        border-radius: 50%;
+        background: var(--green);
+        animation: pulse 2s infinite;
+      }
+      .hero-name {
+        font-family: "Outfit", sans-serif;
+        font-size: clamp(3rem, 6vw, 5.2rem);
+        font-weight: 900;
+        line-height: 1;
+        color: var(--text);
+        margin-bottom: 12px;
+        letter-spacing: -0.02em;
+      }
+      .hero-name .grad {
+        background: linear-gradient(
+          135deg,
+          var(--sky) 0%,
+          var(--indigo-lt) 50%,
+          var(--violet) 100%
+        );
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+      .hero-role {
+        font-size: clamp(0.95rem, 1.6vw, 1.15rem);
+        color: var(--text-2);
+        margin-bottom: 20px;
+        font-weight: 400;
+      }
+      .hero-role strong {
+        color: var(--sky);
+        font-weight: 600;
+      }
+      .hero-tagline {
+        font-size: clamp(1rem, 1.8vw, 1.2rem);
+        color: var(--text);
+        font-weight: 500;
+        line-height: 1.65;
+        max-width: 520px;
+        margin-bottom: 40px;
+      }
+      .hero-tagline em {
+        font-style: normal;
+        color: var(--sky);
+        border-bottom: 1px dashed rgba(56, 189, 248, 0.4);
+      }
+      .hero-cta {
+        display: flex;
+        gap: 12px;
+        flex-wrap: wrap;
+        margin-bottom: 52px;
+      }
+      .btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 12px 24px;
+        border-radius: var(--r-md);
+        font-size: 0.88rem;
+        font-weight: 600;
+        text-decoration: none;
+        cursor: pointer;
+        border: none;
+        transition: all 0.2s;
+        font-family: "Inter", sans-serif;
+      }
+      .btn-primary {
+        background: linear-gradient(135deg, var(--indigo), #7c3aed);
+        color: white;
+        box-shadow: 0 0 24px rgba(99, 102, 241, 0.35);
+      }
+      .btn-primary:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 0 32px rgba(99, 102, 241, 0.5);
+      }
+      .btn-sky {
+        background: rgba(56, 189, 248, 0.1);
+        color: var(--sky);
+        border: 1px solid rgba(56, 189, 248, 0.25);
+      }
+      .btn-sky:hover {
+        background: rgba(56, 189, 248, 0.18);
+        transform: translateY(-1px);
+      }
+      .btn-ghost {
+        background: rgba(255, 255, 255, 0.04);
+        color: var(--text-2);
+        border: 1px solid var(--border);
+      }
+      .btn-ghost:hover {
+        background: rgba(255, 255, 255, 0.08);
+        color: var(--text);
+      }
+
+      .hero-metrics {
+        display: flex;
+        gap: 24px;
+        flex-wrap: wrap;
+      }
+      .hero-metric {
+        display: flex;
+        flex-direction: column;
+      }
+      .hero-metric .num {
+        font-family: "Outfit", sans-serif;
+        font-size: 1.9rem;
+        font-weight: 800;
+        line-height: 1;
+        background: linear-gradient(135deg, var(--text), var(--sky-lt));
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+      .hero-metric .lbl {
+        font-size: 0.72rem;
+        color: var(--text-3);
+        margin-top: 4px;
+        font-weight: 500;
+      }
+      .hero-divider {
+        width: 1px;
+        background: var(--border);
+        align-self: stretch;
+        margin: 0 4px;
+      }
+
+      /* Hero right card */
+      .hero-card {
+        background: rgba(13, 17, 23, 0.85);
+        backdrop-filter: blur(24px);
+        border: 1px solid var(--border);
+        border-radius: var(--r-xl);
+        overflow: hidden;
+        position: relative;
+      }
+      .hero-card::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(
+          135deg,
+          rgba(99, 102, 241, 0.08) 0%,
+          transparent 60%
+        );
+        pointer-events: none;
+      }
+      .hero-avatar-wrap {
+        position: relative;
+        background: linear-gradient(
+          135deg,
+          rgba(99, 102, 241, 0.15),
+          rgba(56, 189, 248, 0.1)
+        );
+        padding: 36px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-bottom: 1px solid var(--border);
+      }
+      .hero-avatar {
+        width: 120px;
+        height: 120px;
+        border-radius: 50%;
+        background: linear-gradient(135deg, var(--indigo), var(--sky));
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-family: "Outfit", sans-serif;
+        font-size: 2.8rem;
+        font-weight: 800;
+        color: white;
+        position: relative;
+        box-shadow: 0 0 40px rgba(99, 102, 241, 0.4);
+      }
+      .avatar-ring {
+        position: absolute;
+        inset: -6px;
+        border-radius: 50%;
+        border: 2px solid transparent;
+        background:
+          linear-gradient(var(--surface-1), var(--surface-1)) padding-box,
+          linear-gradient(135deg, var(--indigo), var(--sky)) border-box;
+        animation: spin 8s linear infinite;
+      }
+      @keyframes spin {
+        to {
+          transform: rotate(360deg);
+        }
+      }
+      .hero-status-dot {
+        position: absolute;
+        bottom: 8px;
+        right: 8px;
+        width: 14px;
+        height: 14px;
+        border-radius: 50%;
+        background: var(--green);
+        border: 2px solid var(--surface-1);
+      }
+      .hero-card-body {
+        padding: 24px;
+      }
+      .hcb-name {
+        font-family: "Outfit", sans-serif;
+        font-size: 1.15rem;
+        font-weight: 700;
+        color: var(--text);
+      }
+      .hcb-title {
+        font-size: 0.8rem;
+        color: var(--text-2);
+        margin-bottom: 16px;
+      }
+      .hcb-stack {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 6px;
+        margin-bottom: 16px;
+      }
+      .chip {
+        font-family: "JetBrains Mono", monospace;
+        font-size: 0.67rem;
+        padding: 3px 9px;
+        border-radius: 4px;
+        font-weight: 500;
+      }
+      .chip-blue {
+        background: rgba(56, 189, 248, 0.1);
+        color: var(--sky);
+        border: 1px solid rgba(56, 189, 248, 0.2);
+      }
+      .chip-violet {
+        background: rgba(167, 139, 250, 0.1);
+        color: var(--violet);
+        border: 1px solid rgba(167, 139, 250, 0.2);
+      }
+      .chip-green {
+        background: rgba(52, 211, 153, 0.1);
+        color: var(--green);
+        border: 1px solid rgba(52, 211, 153, 0.2);
+      }
+      .chip-amber {
+        background: rgba(251, 191, 36, 0.1);
+        color: var(--amber);
+        border: 1px solid rgba(251, 191, 36, 0.2);
+      }
+      .chip-indigo {
+        background: rgba(99, 102, 241, 0.1);
+        color: var(--indigo-lt);
+        border: 1px solid rgba(99, 102, 241, 0.2);
+      }
+      .hcb-stats {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 10px;
+        margin-top: 14px;
+      }
+      .hcb-stat {
+        background: rgba(255, 255, 255, 0.03);
+        border: 1px solid var(--border);
+        border-radius: var(--r-sm);
+        padding: 12px;
+      }
+      .hcb-stat .n {
+        font-family: "Outfit", sans-serif;
+        font-size: 1.3rem;
+        font-weight: 800;
+        color: var(--sky);
+      }
+      .hcb-stat .l {
+        font-size: 0.68rem;
+        color: var(--text-3);
+        margin-top: 2px;
+      }
+      .hcb-links {
+        display: flex;
+        gap: 8px;
+        margin-top: 16px;
+      }
+      .icon-btn {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 36px;
+        height: 36px;
+        border-radius: var(--r-sm);
+        background: rgba(255, 255, 255, 0.04);
+        border: 1px solid var(--border);
+        color: var(--text-2);
+        text-decoration: none;
+        font-size: 0.9rem;
+        transition: all 0.2s;
+      }
+      .icon-btn:hover {
+        background: rgba(99, 102, 241, 0.15);
+        border-color: rgba(99, 102, 241, 0.3);
+        color: var(--indigo-lt);
+      }
+
+      /* ═══════════════════════════════════════
+   ABOUT
+═══════════════════════════════════════ */
+      #about {
+        background: linear-gradient(
+          180deg,
+          var(--base) 0%,
+          var(--surface-1) 100%
+        );
+      }
+      .about-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 48px;
+        align-items: start;
+      }
+      .about-text p {
+        font-size: 0.95rem;
+        color: var(--text-2);
+        margin-bottom: 16px;
+        line-height: 1.8;
+      }
+      .about-text p strong {
+        color: var(--text);
+        font-weight: 600;
+      }
+      .about-text p .hl {
+        color: var(--sky);
+      }
+      .philosophy-box {
+        margin-top: 28px;
+        padding: 24px;
+        background: rgba(99, 102, 241, 0.06);
+        border: 1px solid rgba(99, 102, 241, 0.2);
+        border-radius: var(--r-lg);
+        border-left: 3px solid var(--indigo);
+      }
+      .philosophy-box p {
+        font-size: 0.88rem;
+        color: var(--text-2);
+        line-height: 1.8;
+        font-style: italic;
+        margin-bottom: 8px;
+      }
+      .philosophy-box span {
+        font-size: 0.75rem;
+        color: var(--text-3);
+        font-family: "JetBrains Mono", monospace;
+      }
+      .about-cards {
+        display: flex;
+        flex-direction: column;
+        gap: 14px;
+      }
+      .about-card {
+        padding: 20px 22px;
+        background: rgba(17, 24, 39, 0.7);
+        border: 1px solid var(--border);
+        border-radius: var(--r-md);
+        display: flex;
+        align-items: flex-start;
+        gap: 16px;
+        transition:
+          border-color 0.2s,
+          transform 0.2s;
+      }
+      .about-card:hover {
+        border-color: rgba(99, 102, 241, 0.25);
+        transform: translateX(4px);
+      }
+      .ac-icon {
+        width: 38px;
+        height: 38px;
+        border-radius: var(--r-sm);
+        display: grid;
+        place-items: center;
+        font-size: 1.1rem;
+        flex-shrink: 0;
+      }
+      .ac-title {
+        font-size: 0.9rem;
+        font-weight: 600;
+        color: var(--text);
+        margin-bottom: 3px;
+      }
+      .ac-sub {
+        font-size: 0.8rem;
+        color: var(--text-2);
+      }
+
+      /* ═══════════════════════════════════════
+   SKILLS
+═══════════════════════════════════════ */
+      #skills {
+        background: var(--surface-1);
+      }
+      .skills-tabs {
+        display: flex;
+        gap: 8px;
+        flex-wrap: wrap;
+        margin-bottom: 40px;
+      }
+      .stab {
+        padding: 7px 16px;
+        border-radius: 99px;
+        font-size: 0.8rem;
+        font-weight: 500;
+        cursor: pointer;
+        border: 1px solid var(--border);
+        color: var(--text-2);
+        background: transparent;
+        transition: all 0.2s;
+        font-family: "Inter", sans-serif;
+      }
+      .stab.active,
+      .stab:hover {
+        background: rgba(99, 102, 241, 0.15);
+        border-color: rgba(99, 102, 241, 0.35);
+        color: var(--indigo-lt);
+      }
+      .skills-panel {
+        display: none;
+      }
+      .skills-panel.active {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+        gap: 14px;
+      }
+      .skill-item {
+        padding: 16px 18px;
+        background: rgba(13, 17, 23, 0.8);
+        border: 1px solid var(--border);
+        border-radius: var(--r-md);
+        transition:
+          border-color 0.2s,
+          transform 0.15s;
+      }
+      .skill-item:hover {
+        border-color: rgba(99, 102, 241, 0.25);
+        transform: translateY(-2px);
+      }
+      .si-top {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 10px;
+      }
+      .si-name {
+        font-size: 0.85rem;
+        font-weight: 600;
+        color: var(--text);
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+      .si-name span {
+        font-size: 1rem;
+      }
+      .si-pct {
+        font-family: "JetBrains Mono", monospace;
+        font-size: 0.7rem;
+        color: var(--text-3);
+      }
+      .si-bar {
+        height: 3px;
+        background: var(--border);
+        border-radius: 99px;
+        overflow: hidden;
+      }
+      .si-fill {
+        height: 100%;
+        border-radius: 99px;
+        transition: width 1s ease;
+      }
+
+      /* ═══════════════════════════════════════
+   EXPERIENCE
+═══════════════════════════════════════ */
+      #experience {
+        background: var(--base);
+      }
+      .exp-timeline {
+        position: relative;
+        padding-left: 40px;
+      }
+      .exp-timeline::before {
+        content: "";
+        position: absolute;
+        left: 14px;
+        top: 0;
+        bottom: 0;
+        width: 2px;
+        background: linear-gradient(
+          180deg,
+          var(--indigo) 0%,
+          var(--sky) 50%,
+          transparent 100%
+        );
+      }
+      .exp-item {
+        position: relative;
+        margin-bottom: 56px;
+      }
+      .exp-item:last-child {
+        margin-bottom: 0;
+      }
+      .exp-dot {
+        position: absolute;
+        left: -33px;
+        top: 4px;
+        width: 18px;
+        height: 18px;
+        border-radius: 50%;
+        background: var(--base);
+        border: 2px solid var(--indigo);
+        box-shadow: 0 0 12px rgba(99, 102, 241, 0.5);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .exp-dot::after {
+        content: "";
+        width: 6px;
+        height: 6px;
+        border-radius: 50%;
+        background: var(--indigo);
+      }
+      .exp-card {
+        padding: 28px 32px;
+        background: rgba(13, 17, 23, 0.8);
+        border: 1px solid var(--border);
+        border-radius: var(--r-lg);
+        transition: border-color 0.25s;
+      }
+      .exp-card:hover {
+        border-color: rgba(99, 102, 241, 0.25);
+      }
+      .exp-header {
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        gap: 12px;
+        margin-bottom: 20px;
+      }
+      .exp-role {
+        font-family: "Outfit", sans-serif;
+        font-size: 1.15rem;
+        font-weight: 700;
+        color: var(--text);
+      }
+      .exp-co {
+        font-size: 0.88rem;
+        color: var(--sky);
+        font-weight: 500;
+        margin-top: 3px;
+      }
+      .exp-badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        font-family: "JetBrains Mono", monospace;
+        font-size: 0.7rem;
+        padding: 5px 12px;
+        border-radius: 99px;
+        background: rgba(99, 102, 241, 0.1);
+        color: var(--indigo-lt);
+        border: 1px solid rgba(99, 102, 241, 0.2);
+        white-space: nowrap;
+      }
+      .exp-achievements {
+        list-style: none;
+      }
+      .exp-achievements li {
+        font-size: 0.88rem;
+        color: var(--text-2);
+        margin-bottom: 10px;
+        padding-left: 22px;
+        position: relative;
+        line-height: 1.7;
+      }
+      .exp-achievements li::before {
+        content: "→";
+        position: absolute;
+        left: 0;
+        color: var(--indigo-lt);
+        font-size: 0.8rem;
+      }
+      .exp-achievements li strong {
+        color: var(--text);
+      }
+      .exp-achievements li .metric {
+        display: inline-block;
+        color: var(--green);
+        font-weight: 600;
+        background: rgba(52, 211, 153, 0.08);
+        padding: 1px 6px;
+        border-radius: 4px;
+        font-size: 0.82rem;
+        margin: 0 2px;
+      }
+      .exp-tech {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 6px;
+        margin-top: 16px;
+        padding-top: 16px;
+        border-top: 1px solid var(--border);
+      }
+
+      /* ═══════════════════════════════════════
+   PROJECTS
+═══════════════════════════════════════ */
+      #projects {
+        background: var(--surface-1);
+      }
+      .proj-nav {
+        display: flex;
+        gap: 8px;
+        flex-wrap: wrap;
+        margin-bottom: 40px;
+      }
+      .pnav-btn {
+        padding: 8px 18px;
+        border-radius: var(--r-md);
+        font-size: 0.82rem;
+        font-weight: 500;
+        cursor: pointer;
+        border: 1px solid var(--border);
+        color: var(--text-2);
+        background: transparent;
+        transition: all 0.2s;
+        font-family: "Inter", sans-serif;
+      }
+      .pnav-btn.active {
+        background: rgba(99, 102, 241, 0.15);
+        border-color: rgba(99, 102, 241, 0.3);
+        color: var(--indigo-lt);
+      }
+      .proj-panel {
+        display: none;
+      }
+      .proj-panel.active {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 40px;
+        align-items: start;
+      }
+      .proj-mockup {
+        background: var(--surface-1);
+        border: 1px solid var(--border);
+        border-radius: var(--r-lg);
+        overflow: hidden;
+        aspect-ratio: 16/10;
+        position: relative;
+      }
+      .proj-mockup-bar {
+        height: 32px;
+        background: var(--surface-2);
+        border-bottom: 1px solid var(--border);
+        display: flex;
+        align-items: center;
+        padding: 0 14px;
+        gap: 6px;
+      }
+      .m-dot {
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+      }
+      .proj-mockup-screen {
+        height: calc(100% - 32px);
+        display: flex;
+        flex-direction: column;
+        padding: 20px;
+        background: linear-gradient(
+          135deg,
+          var(--surface-2) 0%,
+          var(--surface-3) 100%
+        );
+        position: relative;
+        overflow: hidden;
+      }
+      .proj-url-bar {
+        background: rgba(0, 0, 0, 0.4);
+        border: 1px solid var(--border);
+        border-radius: 6px;
+        padding: 6px 14px;
+        font-family: "JetBrains Mono", monospace;
+        font-size: 0.7rem;
+        color: var(--text-3);
+        margin-bottom: 16px;
+        display: flex;
+        align-items: center;
+        gap: 6px;
+      }
+      .proj-ui-block {
+        flex: 1;
+        display: grid;
+        gap: 10px;
+        grid-template-columns: 2fr 1fr;
+      }
+      .proj-ui-main {
+        background: rgba(0, 0, 0, 0.25);
+        border-radius: 6px;
+        border: 1px solid var(--border);
+        padding: 12px;
+      }
+      .proj-ui-side {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+      }
+      .proj-ui-card {
+        background: rgba(0, 0, 0, 0.25);
+        border-radius: 6px;
+        border: 1px solid var(--border);
+        padding: 10px;
+        flex: 1;
+      }
+      .pui-heading {
+        height: 6px;
+        width: 60%;
+        border-radius: 3px;
+        margin-bottom: 8px;
+      }
+      .pui-line {
+        height: 4px;
+        border-radius: 2px;
+        margin-bottom: 6px;
+        background: rgba(255, 255, 255, 0.06);
+      }
+      .pui-line.w50 {
+        width: 50%;
+      }
+      .pui-line.w75 {
+        width: 75%;
+      }
+      .pui-line.w40 {
+        width: 40%;
+      }
+      .pui-num {
+        font-family: "Outfit", sans-serif;
+        font-size: 1.4rem;
+        font-weight: 700;
+      }
+      .pui-label {
+        font-size: 0.6rem;
+        color: var(--text-3);
+      }
+      .proj-info {
+        padding: 4px 0;
+      }
+      .proj-livelink {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        font-size: 0.75rem;
+        color: var(--green);
+        background: rgba(52, 211, 153, 0.08);
+        border: 1px solid rgba(52, 211, 153, 0.2);
+        padding: 4px 12px;
+        border-radius: 99px;
+        text-decoration: none;
+        margin-bottom: 14px;
+        font-weight: 500;
+      }
+      .proj-livelink::before {
+        content: "●";
+        font-size: 0.5rem;
+      }
+      .proj-name {
+        font-family: "Outfit", sans-serif;
+        font-size: 1.6rem;
+        font-weight: 800;
+        color: var(--text);
+        margin-bottom: 8px;
+      }
+      .proj-tagline {
+        font-size: 0.9rem;
+        color: var(--sky);
+        font-weight: 500;
+        margin-bottom: 16px;
+      }
+      .proj-desc {
+        font-size: 0.88rem;
+        color: var(--text-2);
+        line-height: 1.8;
+        margin-bottom: 20px;
+      }
+      .proj-meta {
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+      }
+      .pm-block h4 {
+        font-size: 0.7rem;
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+        color: var(--text-3);
+        margin-bottom: 8px;
+        font-family: "JetBrains Mono", monospace;
+      }
+      .pm-block ul {
+        list-style: none;
+      }
+      .pm-block li {
+        font-size: 0.83rem;
+        color: var(--text-2);
+        padding-left: 14px;
+        position: relative;
+        margin-bottom: 4px;
+      }
+      .pm-block li::before {
+        content: "·";
+        position: absolute;
+        left: 0;
+        color: var(--indigo-lt);
+        font-weight: 700;
+      }
+      .proj-impact {
+        display: flex;
+        gap: 16px;
+        flex-wrap: wrap;
+        margin-top: 20px;
+        padding-top: 16px;
+        border-top: 1px solid var(--border);
+      }
+      .pi-item {
+        text-align: center;
+      }
+      .pi-num {
+        font-family: "Outfit", sans-serif;
+        font-size: 1.3rem;
+        font-weight: 800;
+        color: var(--sky);
+      }
+      .pi-lbl {
+        font-size: 0.65rem;
+        color: var(--text-3);
+        margin-top: 2px;
+      }
+
+      /* ═══════════════════════════════════════
+   METRICS
+═══════════════════════════════════════ */
+      #metrics {
+        background: var(--base);
+      }
+      .metrics-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        gap: 20px;
+      }
+      .metric-card {
+        padding: 32px 28px;
+        background: rgba(13, 17, 23, 0.9);
+        border: 1px solid var(--border);
+        border-radius: var(--r-lg);
+        position: relative;
+        overflow: hidden;
+        transition:
+          border-color 0.25s,
+          transform 0.2s;
+      }
+      .metric-card:hover {
+        transform: translateY(-4px);
+      }
+      .metric-card::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 2px;
+      }
+      .mc-blue::before {
+        background: linear-gradient(90deg, var(--sky), var(--indigo));
+        border-color: rgba(56, 189, 248, 0.2);
+      }
+      .mc-violet::before {
+        background: linear-gradient(90deg, var(--violet), var(--indigo));
+      }
+      .mc-green::before {
+        background: linear-gradient(90deg, var(--green), var(--sky));
+      }
+      .mc-amber::before {
+        background: linear-gradient(90deg, var(--amber), var(--rose));
+      }
+      .mc-indigo::before {
+        background: linear-gradient(90deg, var(--indigo), var(--violet));
+      }
+      .mc-rose::before {
+        background: linear-gradient(90deg, var(--rose), var(--violet));
+      }
+      .metric-icon {
+        font-size: 1.8rem;
+        margin-bottom: 16px;
+      }
+      .metric-num {
+        font-family: "Outfit", sans-serif;
+        font-size: 2.8rem;
+        font-weight: 900;
+        line-height: 1;
+        color: var(--text);
+        margin-bottom: 6px;
+        background: linear-gradient(135deg, var(--text), var(--sky-lt));
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+      .metric-label {
+        font-size: 0.85rem;
+        color: var(--text-2);
+        font-weight: 500;
+        margin-bottom: 8px;
+      }
+      .metric-sub {
+        font-size: 0.75rem;
+        color: var(--text-3);
+      }
+
+      /* ═══════════════════════════════════════
+   GITHUB
+═══════════════════════════════════════ */
+      #github {
+        background: var(--surface-1);
+      }
+      .gh-grid {
+        display: grid;
+        grid-template-columns: 2fr 1fr;
+        gap: 28px;
+        align-items: start;
+      }
+      .gh-contrib {
+        background: rgba(13, 17, 23, 0.8);
+        border: 1px solid var(--border);
+        border-radius: var(--r-lg);
+        padding: 28px;
+      }
+      .gh-contrib h3 {
+        font-size: 0.9rem;
+        font-weight: 600;
+        color: var(--text);
+        margin-bottom: 20px;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+      .contrib-grid {
+        display: grid;
+        grid-template-columns: repeat(52, 1fr);
+        gap: 3px;
+      }
+      .contrib-cell {
+        aspect-ratio: 1;
+        border-radius: 2px;
+        background: rgba(255, 255, 255, 0.04);
+      }
+      .c-0 {
+        background: rgba(255, 255, 255, 0.04);
+      }
+      .c-1 {
+        background: rgba(99, 102, 241, 0.2);
+      }
+      .c-2 {
+        background: rgba(99, 102, 241, 0.4);
+      }
+      .c-3 {
+        background: rgba(99, 102, 241, 0.65);
+      }
+      .c-4 {
+        background: var(--indigo);
+      }
+      .gh-repos {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+      }
+      .gh-repo {
+        padding: 16px 18px;
+        background: rgba(13, 17, 23, 0.8);
+        border: 1px solid var(--border);
+        border-radius: var(--r-md);
+        transition: border-color 0.2s;
+      }
+      .gh-repo:hover {
+        border-color: rgba(99, 102, 241, 0.25);
+      }
+      .gr-name {
+        font-size: 0.88rem;
+        font-weight: 600;
+        color: var(--sky);
+        margin-bottom: 4px;
+      }
+      .gr-desc {
+        font-size: 0.78rem;
+        color: var(--text-3);
+        margin-bottom: 10px;
+      }
+      .gr-meta {
+        display: flex;
+        gap: 14px;
+      }
+      .gr-tag {
+        font-size: 0.7rem;
+        color: var(--text-3);
+        display: flex;
+        align-items: center;
+        gap: 4px;
+      }
+
+      /* ═══════════════════════════════════════
+   TESTIMONIALS
+═══════════════════════════════════════ */
+      #testimonials {
+        background: var(--base);
+      }
+      .test-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 20px;
+      }
+      .test-card {
+        padding: 28px;
+        background: rgba(13, 17, 23, 0.85);
+        border: 1px solid var(--border);
+        border-radius: var(--r-lg);
+        position: relative;
+        transition:
+          border-color 0.25s,
+          transform 0.2s;
+      }
+      .test-card:hover {
+        border-color: rgba(99, 102, 241, 0.25);
+        transform: translateY(-3px);
+      }
+      .test-quote {
+        font-size: 2.5rem;
+        line-height: 1;
+        color: var(--indigo);
+        margin-bottom: 12px;
+        font-family: "Outfit", sans-serif;
+      }
+      .test-text {
+        font-size: 0.88rem;
+        color: var(--text-2);
+        line-height: 1.8;
+        margin-bottom: 20px;
+        font-style: italic;
+      }
+      .test-author {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+      }
+      .test-avatar {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: 700;
+        font-size: 0.9rem;
+        color: white;
+        flex-shrink: 0;
+      }
+      .test-name {
+        font-size: 0.88rem;
+        font-weight: 600;
+        color: var(--text);
+      }
+      .test-title {
+        font-size: 0.75rem;
+        color: var(--text-3);
+      }
+      .test-stars {
+        color: var(--amber);
+        font-size: 0.75rem;
+        margin-bottom: 12px;
+      }
+
+      /* ═══════════════════════════════════════
+   BLOGS
+═══════════════════════════════════════ */
+      #blogs {
+        background: var(--surface-1);
+      }
+      .blog-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        gap: 20px;
+      }
+      .blog-card {
+        background: rgba(13, 17, 23, 0.8);
+        border: 1px solid var(--border);
+        border-radius: var(--r-lg);
+        overflow: hidden;
+        transition:
+          border-color 0.25s,
+          transform 0.2s;
+      }
+      .blog-card:hover {
+        border-color: rgba(99, 102, 241, 0.25);
+        transform: translateY(-4px);
+      }
+      .blog-thumb {
+        height: 120px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 2rem;
+        position: relative;
+        overflow: hidden;
+      }
+      .blog-body {
+        padding: 20px;
+      }
+      .blog-tag {
+        font-family: "JetBrains Mono", monospace;
+        font-size: 0.68rem;
+        color: var(--indigo-lt);
+        padding: 3px 8px;
+        background: rgba(99, 102, 241, 0.1);
+        border-radius: 4px;
+        margin-bottom: 10px;
+        display: inline-block;
+      }
+      .blog-title {
+        font-size: 0.95rem;
+        font-weight: 600;
+        color: var(--text);
+        margin-bottom: 8px;
+        line-height: 1.4;
+      }
+      .blog-excerpt {
+        font-size: 0.8rem;
+        color: var(--text-3);
+        line-height: 1.65;
+        margin-bottom: 14px;
+      }
+      .blog-meta {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        font-size: 0.72rem;
+        color: var(--text-3);
+      }
+      .blog-read {
+        color: var(--sky);
+        font-weight: 500;
+      }
+
+      /* ═══════════════════════════════════════
+   CONTACT
+═══════════════════════════════════════ */
+      #contact {
+        background: var(--base);
+      }
+      .contact-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 48px;
+        align-items: start;
+      }
+      .contact-headline {
+        font-family: "Outfit", sans-serif;
+        font-size: clamp(1.8rem, 3vw, 2.5rem);
+        font-weight: 900;
+        color: var(--text);
+        line-height: 1.15;
+        margin-bottom: 16px;
+      }
+      .contact-sub {
+        font-size: 0.95rem;
+        color: var(--text-2);
+        line-height: 1.8;
+        margin-bottom: 32px;
+      }
+      .contact-items {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+      }
+      .contact-item {
+        display: flex;
+        align-items: center;
+        gap: 14px;
+        padding: 14px 18px;
+        background: rgba(13, 17, 23, 0.8);
+        border: 1px solid var(--border);
+        border-radius: var(--r-md);
+        text-decoration: none;
+        transition:
+          border-color 0.2s,
+          transform 0.15s;
+        color: var(--text);
+      }
+      .contact-item:hover {
+        border-color: rgba(99, 102, 241, 0.3);
+        transform: translateX(4px);
+        color: var(--sky);
+      }
+      .ci-icon {
+        width: 38px;
+        height: 38px;
+        border-radius: var(--r-sm);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1rem;
+        flex-shrink: 0;
+      }
+      .ci-label {
+        font-size: 0.72rem;
+        color: var(--text-3);
+        display: block;
+        margin-bottom: 2px;
+        font-family: "JetBrains Mono", monospace;
+      }
+      .ci-value {
+        font-size: 0.88rem;
+        font-weight: 500;
+      }
+      .contact-card {
+        padding: 32px;
+        background: rgba(13, 17, 23, 0.85);
+        border: 1px solid var(--border);
+        border-radius: var(--r-xl);
+        position: relative;
+        overflow: hidden;
+      }
+      .contact-card::before {
+        content: "";
+        position: absolute;
+        top: -60px;
+        right: -60px;
+        width: 200px;
+        height: 200px;
+        border-radius: 50%;
+        background: radial-gradient(
+          circle,
+          rgba(99, 102, 241, 0.15),
+          transparent 70%
+        );
+        pointer-events: none;
+      }
+      .cc-title {
+        font-family: "Outfit", sans-serif;
+        font-size: 1.15rem;
+        font-weight: 700;
+        color: var(--text);
+        margin-bottom: 20px;
+      }
+      .cc-available {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        font-size: 0.8rem;
+        color: var(--green);
+        margin-bottom: 24px;
+        font-weight: 500;
+      }
+      .cc-available span {
+        width: 7px;
+        height: 7px;
+        border-radius: 50%;
+        background: var(--green);
+        animation: pulse 2s infinite;
+      }
+      .cc-info {
+        display: flex;
+        flex-direction: column;
+        gap: 14px;
+        margin-bottom: 24px;
+      }
+      .cc-row {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        font-size: 0.88rem;
+      }
+      .cc-row .lbl {
+        color: var(--text-3);
+        min-width: 80px;
+        font-family: "JetBrains Mono", monospace;
+        font-size: 0.75rem;
+      }
+      .cc-row .val {
+        color: var(--text-2);
+      }
+      .cc-actions {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+      }
+
+      /* ═══════════════════════════════════════
+   FOOTER
+═══════════════════════════════════════ */
+      footer {
+        border-top: 1px solid var(--border);
+        padding: 28px clamp(20px, 5vw, 80px);
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        gap: 16px;
+        background: var(--surface-1);
+        position: relative;
+        z-index: 1;
+      }
+      .footer-brand {
+        font-family: "JetBrains Mono", monospace;
+        font-size: 0.78rem;
+        color: var(--text-3);
+      }
+      .footer-brand strong {
+        color: var(--sky);
+      }
+      .footer-copy {
+        font-size: 0.75rem;
+        color: var(--text-3);
+      }
+      .footer-links {
+        display: flex;
+        gap: 16px;
+      }
+      .footer-links a {
+        font-size: 0.78rem;
+        color: var(--text-3);
+        text-decoration: none;
+        transition: color 0.2s;
+      }
+      .footer-links a:hover {
+        color: var(--sky);
+      }
+
+      /* ═══════════════════════════════════════
+   RESPONSIVE
+═══════════════════════════════════════ */
+      @media (max-width: 900px) {
+        .hero-inner {
+          grid-template-columns: 1fr;
+        }
+        .hero-card {
+          max-width: 380px;
+        }
+        .about-grid {
+          grid-template-columns: 1fr;
+        }
+        .proj-panel.active {
+          grid-template-columns: 1fr;
+        }
+        .gh-grid {
+          grid-template-columns: 1fr;
+        }
+        .contact-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+      @media (max-width: 640px) {
+        .nav-links {
+          display: none;
+        }
+        .nav-mobile-toggle {
+          display: flex;
+          align-items: center;
+          gap: 6px;
+        }
+        .hero-metrics {
+          gap: 16px;
+        }
+        .metrics-grid {
+          grid-template-columns: 1fr 1fr;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="grid-bg"></div>
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
+    <div class="orb orb-3"></div>
+
+    <!-- ──────────────── NAV ──────────────── -->
+    <nav id="nav">
+      <a href="#hero" class="nav-logo">S<em>.</em>Singh<em>/</em></a>
+      <ul class="nav-links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#metrics">Impact</a></li>
+        <li><a href="#contact">Contact</a></li>
+        <li><a href="#contact" class="nav-hire">Hire Me</a></li>
+      </ul>
+      <button
+        class="nav-mobile-toggle"
+        onclick="document.querySelector('.nav-links').classList.toggle('open')"
+      >
+        ☰ Menu
+      </button>
+    </nav>
+
+    <!-- ──────────────── HERO ──────────────── -->
+    <section id="hero">
+      <div class="hero-inner">
+        <div class="reveal">
+          <div class="hero-available">
+            <span></span> Open to Full-time Opportunities
+          </div>
+          <h1 class="hero-name"><span class="grad">Shivam</span><br />Singh</h1>
+          <p class="hero-role">
+            <strong>Full Stack Developer</strong> · Python & Django Specialist ·
+            Patna, India
+          </p>
+          <p class="hero-tagline">
+            I build <em>APIs that scale</em>, <em>real-time systems</em> that
+            respond in milliseconds, and <em>backends</em> that engineering
+            teams can confidently ship to production — not just demo.
+          </p>
+          <div class="hero-cta">
+            <a href="#contact" class="btn btn-primary">⚡ Hire Me</a>
+            <a href="#projects" class="btn btn-sky">View Projects →</a>
+            <a
+              href="#"
+              class="btn btn-ghost"
+              onclick="alert('Add your resume PDF link here')"
+              >↓ Download CV</a
+            >
+          </div>
+          <div class="hero-metrics">
+            <div class="hero-metric">
+              <div class="num">50+</div>
+              <div class="lbl">REST APIs Built</div>
+            </div>
+            <div class="hero-divider"></div>
+            <div class="hero-metric">
+              <div class="num">1K+</div>
+              <div class="lbl">Daily Users Served</div>
+            </div>
+            <div class="hero-divider"></div>
+            <div class="hero-metric">
+              <div class="num">500+</div>
+              <div class="lbl">Concurrent Users</div>
+            </div>
+            <div class="hero-divider"></div>
+            <div class="hero-metric">
+              <div class="num">4+</div>
+              <div class="lbl">Live Products</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="hero-card reveal" style="transition-delay: 0.2s">
+          <div class="hero-avatar-wrap">
+            <div class="hero-avatar">
+              <div class="avatar-ring"></div>
+              SS
+              <div class="hero-status-dot"></div>
+            </div>
+          </div>
+          <div class="hero-card-body">
+            <div class="hcb-name">Shivam Singh</div>
+            <div class="hcb-title">
+              Full Stack Developer · 2+ Years · Patna, IN
+            </div>
+            <div class="hcb-stack">
+              <span class="chip chip-blue">Python</span>
+              <span class="chip chip-blue">Django</span>
+              <span class="chip chip-violet">DRF</span>
+              <span class="chip chip-green">MySQL</span>
+              <span class="chip chip-amber">WebSockets</span>
+              <span class="chip chip-indigo">JWT</span>
+              <span class="chip chip-blue">REST APIs</span>
+              <span class="chip chip-violet">RBAC</span>
+            </div>
+            <div class="hcb-stats">
+              <div class="hcb-stat">
+                <div class="n">30%</div>
+                <div class="l">Response time improvement</div>
+              </div>
+              <div class="hcb-stat">
+                <div class="n">40%</div>
+                <div class="l">Security incidents reduced</div>
+              </div>
+              <div class="hcb-stat">
+                <div class="n">35%</div>
+                <div class="l">DB performance boost</div>
+              </div>
+              <div class="hcb-stat">
+                <div class="n">&lt;1s</div>
+                <div class="l">WebSocket latency</div>
+              </div>
+            </div>
+            <div class="hcb-links">
+              <a
+                href="https://github.com/shivam-singh-coder"
+                target="_blank"
+                class="icon-btn"
+                title="GitHub"
+                >⌨</a
+              >
+              <a
+                href="https://linkedin.com/in/shivam-singh-coder"
+                target="_blank"
+                class="icon-btn"
+                title="LinkedIn"
+                >in</a
+              >
+              <a
+                href="mailto:shivamsingh.dev03@gmail.com"
+                class="icon-btn"
+                title="Email"
+                >✉</a
+              >
+              <a href="tel:+917617839389" class="icon-btn" title="Phone">📱</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ──────────────── ABOUT ──────────────── -->
+    <section id="about" class="section">
+      <div class="inner">
+        <div class="section-badge">About Me</div>
+        <h2 class="sh">Engineer first.<br /><span>Builder always.</span></h2>
+        <div class="about-grid reveal">
+          <div class="about-text">
+            <p>
+              I'm a <strong>Full Stack Developer</strong> based in
+              <span class="hl">Patna, India</span>, currently working at
+              <strong>Rays Edutech Private Limited</strong> where I've spent 2+
+              years turning product requirements into production-grade systems
+              that real users depend on every day.
+            </p>
+            <p>
+              My focus is the <strong>backend</strong> — designing REST APIs
+              that don't just work but <span class="hl">scale</span>, building
+              real-time features with Django Channels that feel instant, and
+              writing code that my teammates can maintain six months later
+              without needing a map.
+            </p>
+            <p>
+              Alongside my work, I'm pursuing an
+              <strong>MCA in AI & ML at Lovely Professional University</strong>
+              — because I believe the next generation of backend systems will be
+              intelligent, not just fast, and I want to be building them.
+            </p>
+            <div class="philosophy-box">
+              <p>
+                "Good backend code is invisible to users and obvious to
+                engineers. I write for both audiences — systems that perform
+                silently and codebases that communicate clearly."
+              </p>
+              <span>— Development philosophy</span>
+            </div>
+          </div>
+          <div class="about-cards">
+            <div class="about-card">
+              <div class="ac-icon" style="background: rgba(56, 189, 248, 0.1)">
+                🏢
+              </div>
+              <div>
+                <div class="ac-title">Rays Edutech Pvt. Ltd.</div>
+                <div class="ac-sub">
+                  Backend / Full Stack Developer · Patna · 2022–Present
+                </div>
+              </div>
+            </div>
+            <div class="about-card">
+              <div class="ac-icon" style="background: rgba(99, 102, 241, 0.1)">
+                🎓
+              </div>
+              <div>
+                <div class="ac-title">MCA in AI & Machine Learning</div>
+                <div class="ac-sub">
+                  Lovely Professional University · 2025–2027
+                </div>
+              </div>
+            </div>
+            <div class="about-card">
+              <div class="ac-icon" style="background: rgba(52, 211, 153, 0.1)">
+                🏛️
+              </div>
+              <div>
+                <div class="ac-title">Data Science Workshop</div>
+                <div class="ac-sub">IIT Patna · Certified</div>
+              </div>
+            </div>
+            <div class="about-card">
+              <div class="ac-icon" style="background: rgba(251, 191, 36, 0.1)">
+                🎖️
+              </div>
+              <div>
+                <div class="ac-title">BCA · 81.2% · Chandigarh University</div>
+                <div class="ac-sub">
+                  Bachelor of Computer Applications · 2022–2025
+                </div>
+              </div>
+            </div>
+            <div class="about-card">
+              <div class="ac-icon" style="background: rgba(167, 139, 250, 0.1)">
+                ⚡
+              </div>
+              <div>
+                <div class="ac-title">Always shipping, always learning</div>
+                <div class="ac-sub">
+                  5+ CRUD apps built for practice · 50+ production APIs
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ──────────────── SKILLS ──────────────── -->
+    <section id="skills" class="section">
+      <div class="inner">
+        <div class="section-badge">Technical Skills</div>
+        <h2 class="sh">My <span>Tech Stack</span></h2>
+        <p class="sub">
+          Tools and technologies I use to build scalable, maintainable,
+          production-ready systems.
+        </p>
+        <div class="skills-tabs reveal">
+          <button class="stab active" onclick="switchTab('backend', this)">
+            ⚙️ Backend
+          </button>
+          <button class="stab" onclick="switchTab('frontend', this)">
+            🎨 Frontend
+          </button>
+          <button class="stab" onclick="switchTab('database', this)">
+            🗄️ Database
+          </button>
+          <button class="stab" onclick="switchTab('devops', this)">
+            🛠️ DevOps & Tools
+          </button>
+          <button class="stab" onclick="switchTab('aiml', this)">
+            🤖 AI & ML
+          </button>
+        </div>
+        <div id="tab-backend" class="skills-panel active reveal">
+          <div class="skill-item">
+            <div class="si-top">
+              <div class="si-name"><span>🐍</span>Python</div>
+              <div class="si-pct">95%</div>
+            </div>
+            <div class="si-bar">
+              <div
+                class="si-fill"
+                style="
+                  width: 95%;
+                  background: linear-gradient(90deg, #38bdf8, #6366f1);
+                "
+              ></div>
+            </div>
+          </div>
+          <div class="skill-item">
+            <div class="si-top">
+              <div class="si-name"><span>🌐</span>Django</div>
+              <div class="si-pct">92%</div>
+            </div>
+            <div class="si-bar">
+              <div
+                class="si-fill"
+                style="
+                  width: 92%;
+                  background: linear-gradient(90deg, #38bdf8, #6366f1);
+                "
+              ></div>
+            </div>
+          </div>
+          <div class="skill-item">
+            <div class="si-top">
+              <div class="si-name"><span>🔌</span>Django REST Framework</div>
+              <div class="si-pct">90%</div>
+            </div>
+            <div class="si-bar">
+              <div
+                class="si-fill"
+                style="
+                  width: 90%;
+                  background: linear-gradient(90deg, #38bdf8, #6366f1);
+                "
+              ></div>
+            </div>
+          </div>
+          <div class="skill-item">
+            <div class="si-top">
+              <div class="si-name"><span>⚡</span>Django Channels</div>
+              <div class="si-pct">85%</div>
+            </div>
+            <div class="si-bar">
+              <div
+                class="si-fill"
+                style="
+                  width: 85%;
+                  background: linear-gradient(90deg, #34d399, #38bdf8);
+                "
+              ></div>
+            </div>
+          </div>
+          <div class="skill-item">
+            <div class="si-top">
+              <div class="si-name"><span>🔒</span>JWT / Auth</div>
+              <div class="si-pct">88%</div>
+            </div>
+            <div class="si-bar">
+              <div
+                class="si-fill"
+                style="
+                  width: 88%;
+                  background: linear-gradient(90deg, #a78bfa, #6366f1);
+                "
+              ></div>
+            </div>
+          </div>
+          <div class="skill-item">
+            <div class="si-top">
+              <div class="si-name"><span>🛡️</span>RBAC / Permissions</div>
+              <div class="si-pct">87%</div>
+            </div>
+            <div class="si-bar">
+              <div
+                class="si-fill"
+                style="
+                  width: 87%;
+                  background: linear-gradient(90deg, #a78bfa, #6366f1);
+                "
+              ></div>
+            </div>
+          </div>
+          <div class="skill-item">
+            <div class="si-top">
+              <div class="si-name"><span>🔄</span>WebSockets</div>
+              <div class="si-pct">82%</div>
+            </div>
+            <div class="si-bar">
+              <div
+                class="si-fill"
+                style="
+                  width: 82%;
+                  background: linear-gradient(90deg, #fbbf24, #f97316);
+                "
+              ></div>
+            </div>
+          </div>
+          <div class="skill-item">
+            <div class="si-top">
+              <div class="si-name"><span>🧩</span>REST API Design</div>
+              <div class="si-pct">93%</div>
+            </div>
+            <div class="si-bar">
+              <div
+                class="si-fill"
+                style="
+                  width: 93%;
+                  background: linear-gradient(90deg, #38bdf8, #6366f1);
+                "
+              ></div>
+            </div>
+          </div>
+        </div>
+        <div id="tab-frontend" class="skills-panel">
+          <div class="skill-item">
+            <div class="si-top">
+              <div class="si-name"><span>🌐</span>HTML5</div>
+              <div class="si-pct">88%</div>
+            </div>
+            <div class="si-bar">
+              <div
+                class="si-fill"
+                style="
+                  width: 88%;
+                  background: linear-gradient(90deg, #f97316, #fbbf24);
+                "
+              ></div>
+            </div>
+          </div>
+          <div class="skill-item">
+            <div class="si-top">
+              <div class="si-name"><span>🎨</span>CSS3</div>
+              <div class="si-pct">82%</div>
+            </div>
+            <div class="si-bar">
+              <div
+                class="si-fill"
+                style="
+                  width: 82%;
+                  background: linear-gradient(90deg, #38bdf8, #6366f1);
+                "
+              ></div>
+            </div>
+          </div>
+          <div class="skill-item">
+            <div class="si-top">
+              <div class="si-name"><span>⚡</span>JavaScript</div>
+              <div class="si-pct">78%</div>
+            </div>
+            <div class="si-bar">
+              <div
+                class="si-fill"
+                style="
+                  width: 78%;
+                  background: linear-gradient(90deg, #fbbf24, #f97316);
+                "
+              ></div>
+            </div>
+          </div>
+          <div class="skill-item">
+            <div class="si-top">
+              <div class="si-name"><span>🎛️</span>Bootstrap</div>
+              <div class="si-pct">85%</div>
+            </div>
+            <div class="si-bar">
+              <div
+                class="si-fill"
+                style="
+                  width: 85%;
+                  background: linear-gradient(90deg, #a78bfa, #6366f1);
+                "
+              ></div>
+            </div>
+          </div>
+          <div class="skill-item">
+            <div class="si-top">
+              <div class="si-name"><span>📱</span>Responsive Design</div>
+              <div class="si-pct">83%</div>
+            </div>
+            <div class="si-bar">
+              <div
+                class="si-fill"
+                style="
+                  width: 83%;
+                  background: linear-gradient(90deg, #34d399, #38bdf8);
+                "
+              ></div>
+            </div>
+          </div>
+        </div>
+        <div id="tab-database" class="skills-panel">
+          <div class="skill-item">
+            <div class="si-top">
+              <div class="si-name"><span>🐬</span>MySQL</div>
+              <div class="si-pct">90%</div>
+            </div>
+            <div class="si-bar">
+              <div
+                class="si-fill"
+                style="
+                  width: 90%;
+                  background: linear-gradient(90deg, #f97316, #fbbf24);
+                "
+              ></div>
+            </div>
+          </div>
+          <div class="skill-item">
+            <div class="si-top">
+              <div class="si-name"><span>📊</span>Query Optimization</div>
+              <div class="si-pct">85%</div>
+            </div>
+            <div class="si-bar">
+              <div
+                class="si-fill"
+                style="
+                  width: 85%;
+                  background: linear-gradient(90deg, #34d399, #38bdf8);
+                "
+              ></div>
+            </div>
+          </div>
+          <div class="skill-item">
+            <div class="si-top">
+              <div class="si-name"><span>🏗️</span>Schema Design</div>
+              <div class="si-pct">87%</div>
+            </div>
+            <div class="si-bar">
+              <div
+                class="si-fill"
+                style="
+                  width: 87%;
+                  background: linear-gradient(90deg, #38bdf8, #6366f1);
+                "
+              ></div>
+            </div>
+          </div>
+          <div class="skill-item">
+            <div class="si-top">
+              <div class="si-name"><span>🔑</span>Django ORM</div>
+              <div class="si-pct">92%</div>
+            </div>
+            <div class="si-bar">
+              <div
+                class="si-fill"
+                style="
+                  width: 92%;
+                  background: linear-gradient(90deg, #38bdf8, #6366f1);
+                "
+              ></div>
+            </div>
+          </div>
+        </div>
+        <div id="tab-devops" class="skills-panel">
+          <div class="skill-item">
+            <div class="si-top">
+              <div class="si-name"><span>🐙</span>Git / GitHub</div>
+              <div class="si-pct">88%</div>
+            </div>
+            <div class="si-bar">
+              <div
+                class="si-fill"
+                style="
+                  width: 88%;
+                  background: linear-gradient(90deg, #f97316, #fbbf24);
+                "
+              ></div>
+            </div>
+          </div>
+          <div class="skill-item">
+            <div class="si-top">
+              <div class="si-name"><span>🧪</span>Postman</div>
+              <div class="si-pct">90%</div>
+            </div>
+            <div class="si-bar">
+              <div
+                class="si-fill"
+                style="
+                  width: 90%;
+                  background: linear-gradient(90deg, #f97316, #fb7185);
+                "
+              ></div>
+            </div>
+          </div>
+          <div class="skill-item">
+            <div class="si-top">
+              <div class="si-name"><span>🔄</span>Agile / Scrum</div>
+              <div class="si-pct">82%</div>
+            </div>
+            <div class="si-bar">
+              <div
+                class="si-fill"
+                style="
+                  width: 82%;
+                  background: linear-gradient(90deg, #34d399, #38bdf8);
+                "
+              ></div>
+            </div>
+          </div>
+        </div>
+        <div id="tab-aiml" class="skills-panel">
+          <div class="skill-item">
+            <div class="si-top">
+              <div class="si-name"><span>📊</span>Data Science</div>
+              <div class="si-pct">65%</div>
+            </div>
+            <div class="si-bar">
+              <div
+                class="si-fill"
+                style="
+                  width: 65%;
+                  background: linear-gradient(90deg, #a78bfa, #6366f1);
+                "
+              ></div>
+            </div>
+          </div>
+          <div class="skill-item">
+            <div class="si-top">
+              <div class="si-name"><span>🤖</span>Machine Learning</div>
+              <div class="si-pct">60%</div>
+            </div>
+            <div class="si-bar">
+              <div
+                class="si-fill"
+                style="
+                  width: 60%;
+                  background: linear-gradient(90deg, #a78bfa, #6366f1);
+                "
+              ></div>
+            </div>
+          </div>
+          <div class="skill-item">
+            <div class="si-top">
+              <div class="si-name"><span>🧠</span>Neural Networks</div>
+              <div class="si-pct">55%</div>
+            </div>
+            <div class="si-bar">
+              <div
+                class="si-fill"
+                style="
+                  width: 55%;
+                  background: linear-gradient(90deg, #38bdf8, #a78bfa);
+                "
+              ></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ──────────────── EXPERIENCE ──────────────── -->
+    <section id="experience" class="section">
+      <div class="inner">
+        <div class="section-badge">Career Timeline</div>
+        <h2 class="sh"><span>Professional</span> Experience</h2>
+        <p class="sub">
+          Two years of building and shipping — not just writing code.
+        </p>
+        <div class="exp-timeline reveal">
+          <div class="exp-item">
+            <div class="exp-dot"></div>
+            <div class="exp-card">
+              <div class="exp-header">
+                <div>
+                  <div class="exp-role">
+                    Backend Developer / Full Stack Web Developer
+                  </div>
+                  <div class="exp-co">Rays Edutech Private Limited · Patna</div>
+                </div>
+                <span class="exp-badge">📅 2023 – Present</span>
+              </div>
+              <ul class="exp-achievements">
+                <li>
+                  Designed and deployed
+                  <strong>50+ production REST APIs</strong> using Django & DRF,
+                  cutting average response time by
+                  <span class="metric">30%</span> and serving
+                  <span class="metric">1,000+ daily active users</span>.
+                </li>
+                <li>
+                  Architected a layered security model with
+                  <strong>JWT, custom token authentication, and RBAC</strong>,
+                  reducing unauthorized access incidents by
+                  <span class="metric">40%</span> within the first quarter of
+                  deployment.
+                </li>
+                <li>
+                  Built a
+                  <strong>real-time chat & live notification system</strong>
+                  using Django Channels and WebSockets — 500+ concurrent users,
+                  sub-1-second latency measured in production.
+                </li>
+                <li>
+                  Engineered a library of
+                  <strong>reusable decorators and middleware</strong> for
+                  validation, logging, and permission enforcement — reduced code
+                  duplication by <span class="metric">25%</span> across the
+                  codebase.
+                </li>
+                <li>
+                  Optimized MySQL schemas and query plans, boosting database
+                  throughput by <span class="metric">35%</span> while handling
+                  <span class="metric">10,000+ records/day</span> reliably.
+                </li>
+              </ul>
+              <div class="exp-tech">
+                <span class="chip chip-blue">Python</span
+                ><span class="chip chip-blue">Django</span>
+                <span class="chip chip-violet">DRF</span
+                ><span class="chip chip-green">MySQL</span>
+                <span class="chip chip-amber">WebSockets</span
+                ><span class="chip chip-indigo">JWT</span>
+                <span class="chip chip-violet">Django Channels</span
+                ><span class="chip chip-indigo">RBAC</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="exp-item">
+            <div
+              class="exp-dot"
+              style="
+                border-color: var(--sky);
+                box-shadow: 0 0 12px rgba(56, 189, 248, 0.4);
+              "
+            >
+              <div
+                style="
+                  background: var(--sky);
+                  width: 6px;
+                  height: 6px;
+                  border-radius: 50%;
+                "
+              ></div>
+            </div>
+            <div class="exp-card">
+              <div class="exp-header">
+                <div>
+                  <div class="exp-role">Full Stack Development Intern</div>
+                  <div class="exp-co">Rays Edutech Private Limited · Patna</div>
+                </div>
+                <span
+                  class="exp-badge"
+                  style="
+                    color: var(--sky-lt);
+                    background: rgba(56, 189, 248, 0.1);
+                    border-color: rgba(56, 189, 248, 0.2);
+                  "
+                  >📅 2022 – 2023</span
+                >
+              </div>
+              <ul class="exp-achievements">
+                <li>
+                  Contributed to full-stack development across
+                  <strong>5+ client projects</strong> using Django, Python,
+                  HTML, CSS, and JavaScript — shipped features end-to-end under
+                  mentor supervision.
+                </li>
+                <li>
+                  Redesigned UI components with responsive principles, cutting
+                  the average page bounce rate by
+                  <span class="metric">10%</span> and improving cross-device
+                  consistency across 3 products.
+                </li>
+              </ul>
+              <div class="exp-tech">
+                <span class="chip chip-blue">Python</span
+                ><span class="chip chip-blue">Django</span>
+                <span class="chip chip-amber">JavaScript</span
+                ><span class="chip chip-green">HTML/CSS</span>
+                <span class="chip chip-indigo">Bootstrap</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ──────────────── PROJECTS ──────────────── -->
+    <section id="projects" class="section">
+      <div class="inner">
+        <div class="section-badge">Featured Work</div>
+        <h2 class="sh">Products I've <span>Shipped</span></h2>
+        <p class="sub">
+          Live applications used by thousands — each solving a real problem.
+        </p>
+        <div class="proj-nav reveal">
+          <button
+            class="pnav-btn active"
+            onclick="switchProj('collegesewa', this)"
+          >
+            🎓 Collegesewa
+          </button>
+          <button class="pnav-btn" onclick="switchProj('testdarpan', this)">
+            📝 TestDarpan
+          </button>
+          <button class="pnav-btn" onclick="switchProj('truesurvey', this)">
+            📊 TrueSurvey
+          </button>
+          <button class="pnav-btn" onclick="switchProj('krishco', this)">
+            🏭 Krishco ERP
+          </button>
+        </div>
+
+        <!-- Collegesewa -->
+        <div id="proj-collegesewa" class="proj-panel active reveal">
+          <div class="proj-mockup">
+            <div class="proj-mockup-bar">
+              <div class="m-dot" style="background: #ff5f57"></div>
+              <div class="m-dot" style="background: #ffbd2e"></div>
+              <div class="m-dot" style="background: #28ca41"></div>
+            </div>
+            <div class="proj-mockup-screen">
+              <div class="proj-url-bar">🔒 collegesewa.com</div>
+              <div class="proj-ui-block">
+                <div class="proj-ui-main">
+                  <div
+                    class="pui-heading"
+                    style="background: rgba(56, 189, 248, 0.3)"
+                  ></div>
+                  <div class="pui-line w75"></div>
+                  <div class="pui-line w50"></div>
+                  <div style="display: flex; gap: 8px; margin-top: 12px">
+                    <div
+                      style="
+                        flex: 1;
+                        height: 60px;
+                        background: rgba(99, 102, 241, 0.15);
+                        border-radius: 6px;
+                        border: 1px solid rgba(99, 102, 241, 0.2);
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        font-size: 0.7rem;
+                        color: var(--indigo-lt);
+                      "
+                    >
+                      Applications
+                    </div>
+                    <div
+                      style="
+                        flex: 1;
+                        height: 60px;
+                        background: rgba(52, 211, 153, 0.1);
+                        border-radius: 6px;
+                        border: 1px solid rgba(52, 211, 153, 0.2);
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        font-size: 0.7rem;
+                        color: var(--green);
+                      "
+                    >
+                      Programs
+                    </div>
+                  </div>
+                  <div class="pui-line w40" style="margin-top: 10px"></div>
+                  <div class="pui-line w75"></div>
+                </div>
+                <div class="proj-ui-side">
+                  <div
+                    class="proj-ui-card"
+                    style="
+                      background: rgba(99, 102, 241, 0.08);
+                      border-color: rgba(99, 102, 241, 0.2);
+                    "
+                  >
+                    <div class="pui-num" style="color: var(--indigo-lt)">
+                      1,200+
+                    </div>
+                    <div class="pui-label">Applications</div>
+                  </div>
+                  <div
+                    class="proj-ui-card"
+                    style="background: rgba(52, 211, 153, 0.06)"
+                  >
+                    <div class="pui-num" style="color: var(--green)">98%</div>
+                    <div class="pui-label">Uptime</div>
+                  </div>
+                  <div class="proj-ui-card">
+                    <div class="pui-line w75"></div>
+                    <div class="pui-line w50"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="proj-info">
+            <a
+              href="https://collegesewa.com"
+              target="_blank"
+              class="proj-livelink"
+              >Live at collegesewa.com</a
+            >
+            <div class="proj-name">Collegesewa</div>
+            <div class="proj-tagline">
+              University Admission Management Portal
+            </div>
+            <p class="proj-desc">
+              A full-stack portal connecting students to universities — managing
+              1,200+ applications end-to-end with program browsing, registration
+              workflows, and real-time lead generation for university admissions
+              teams.
+            </p>
+            <div class="proj-meta">
+              <div class="pm-block">
+                <h4>Key Features</h4>
+                <ul>
+                  <li>Application tracking with status updates</li>
+                  <li>Program listings with filters and search</li>
+                  <li>Student registration with document upload</li>
+                  <li>Admin dashboard for lead management</li>
+                </ul>
+              </div>
+              <div class="pm-block">
+                <h4>Stack</h4>
+                <div
+                  style="
+                    display: flex;
+                    flex-wrap: wrap;
+                    gap: 6px;
+                    margin-top: 6px;
+                  "
+                >
+                  <span class="chip chip-blue">Django</span
+                  ><span class="chip chip-violet">DRF</span
+                  ><span class="chip chip-green">MySQL</span
+                  ><span class="chip chip-amber">JavaScript</span
+                  ><span class="chip chip-indigo">Bootstrap</span>
+                </div>
+              </div>
+            </div>
+            <div class="proj-impact">
+              <div class="pi-item">
+                <div class="pi-num">1200+</div>
+                <div class="pi-lbl">Applications managed</div>
+              </div>
+              <div class="pi-item">
+                <div class="pi-num">Full Stack</div>
+                <div class="pi-lbl">Developer role</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- TestDarpan -->
+        <div id="proj-testdarpan" class="proj-panel">
+          <div class="proj-mockup">
+            <div class="proj-mockup-bar">
+              <div class="m-dot" style="background: #ff5f57"></div>
+              <div class="m-dot" style="background: #ffbd2e"></div>
+              <div class="m-dot" style="background: #28ca41"></div>
+            </div>
+            <div class="proj-mockup-screen">
+              <div class="proj-url-bar">🔒 testdarpan.com</div>
+              <div class="proj-ui-block">
+                <div class="proj-ui-main">
+                  <div
+                    style="
+                      display: flex;
+                      justify-content: space-between;
+                      align-items: center;
+                      margin-bottom: 12px;
+                    "
+                  >
+                    <div
+                      class="pui-heading"
+                      style="background: rgba(251, 191, 36, 0.4); width: 40%"
+                    ></div>
+                    <div
+                      style="
+                        font-family: &quot;JetBrains Mono&quot;, monospace;
+                        font-size: 0.65rem;
+                        color: var(--amber);
+                      "
+                    >
+                      ⏱ 14:32
+                    </div>
+                  </div>
+                  <div
+                    style="
+                      background: rgba(0, 0, 0, 0.25);
+                      border-radius: 6px;
+                      padding: 10px;
+                      border: 1px solid var(--border);
+                      margin-bottom: 8px;
+                    "
+                  >
+                    <div class="pui-line w75"></div>
+                    <div class="pui-line w50"></div>
+                    <div
+                      style="
+                        display: flex;
+                        gap: 6px;
+                        margin-top: 8px;
+                        flex-wrap: wrap;
+                      "
+                    >
+                      <div
+                        style="
+                          padding: 4px 10px;
+                          background: rgba(99, 102, 241, 0.2);
+                          border-radius: 4px;
+                          font-size: 0.6rem;
+                          color: var(--indigo-lt);
+                        "
+                      >
+                        A
+                      </div>
+                      <div
+                        style="
+                          padding: 4px 10px;
+                          background: rgba(0, 0, 0, 0.2);
+                          border-radius: 4px;
+                          font-size: 0.6rem;
+                          color: var(--text-3);
+                        "
+                      >
+                        B
+                      </div>
+                      <div
+                        style="
+                          padding: 4px 10px;
+                          background: rgba(0, 0, 0, 0.2);
+                          border-radius: 4px;
+                          font-size: 0.6rem;
+                          color: var(--text-3);
+                        "
+                      >
+                        C
+                      </div>
+                      <div
+                        style="
+                          padding: 4px 10px;
+                          background: rgba(0, 0, 0, 0.2);
+                          border-radius: 4px;
+                          font-size: 0.6rem;
+                          color: var(--text-3);
+                        "
+                      >
+                        D
+                      </div>
+                    </div>
+                  </div>
+                  <div class="pui-line w40"></div>
+                </div>
+                <div class="proj-ui-side">
+                  <div
+                    class="proj-ui-card"
+                    style="
+                      background: rgba(251, 191, 36, 0.08);
+                      border-color: rgba(251, 191, 36, 0.2);
+                    "
+                  >
+                    <div class="pui-num" style="color: var(--amber)">42/50</div>
+                    <div class="pui-label">Score</div>
+                  </div>
+                  <div class="proj-ui-card">
+                    <div class="pui-line w75"></div>
+                    <div class="pui-line w50"></div>
+                  </div>
+                  <div
+                    class="proj-ui-card"
+                    style="background: rgba(52, 211, 153, 0.06)"
+                  >
+                    <div class="pui-num" style="color: var(--green)">✓</div>
+                    <div class="pui-label">Auto-graded</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="proj-info">
+            <a
+              href="https://testdarpan.com"
+              target="_blank"
+              class="proj-livelink"
+              >Live at testdarpan.com</a
+            >
+            <div class="proj-name">TestDarpan</div>
+            <div class="proj-tagline">Online Test & Assessment Platform</div>
+            <p class="proj-desc">
+              A comprehensive assessment platform for competitive exam aspirants
+              — featuring question bank management, an integrated rich text
+              editor for content creation, secure payment gateway, and automated
+              evaluation with detailed performance analytics.
+            </p>
+            <div class="proj-meta">
+              <div class="pm-block">
+                <h4>Key Features</h4>
+                <ul>
+                  <li>Question bank with tagging and difficulty levels</li>
+                  <li>Secure timed tests with auto-evaluation</li>
+                  <li>Rich text editor for educators</li>
+                  <li>Performance analytics and leaderboards</li>
+                  <li>Integrated payment gateway</li>
+                </ul>
+              </div>
+              <div class="pm-block">
+                <h4>Stack</h4>
+                <div
+                  style="
+                    display: flex;
+                    flex-wrap: wrap;
+                    gap: 6px;
+                    margin-top: 6px;
+                  "
+                >
+                  <span class="chip chip-blue">Django</span
+                  ><span class="chip chip-violet">DRF</span
+                  ><span class="chip chip-green">MySQL</span
+                  ><span class="chip chip-amber">JS</span
+                  ><span class="chip chip-indigo">Payment API</span>
+                </div>
+              </div>
+            </div>
+            <div class="proj-impact">
+              <div class="pi-item">
+                <div class="pi-num">Full Stack</div>
+                <div class="pi-lbl">Developer role</div>
+              </div>
+              <div class="pi-item">
+                <div class="pi-num">Auto</div>
+                <div class="pi-lbl">Evaluation engine</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- TrueSurvey -->
+        <div id="proj-truesurvey" class="proj-panel">
+          <div class="proj-mockup">
+            <div class="proj-mockup-bar">
+              <div class="m-dot" style="background: #ff5f57"></div>
+              <div class="m-dot" style="background: #ffbd2e"></div>
+              <div class="m-dot" style="background: #28ca41"></div>
+            </div>
+            <div class="proj-mockup-screen">
+              <div class="proj-url-bar">🔒 truesurvey.in</div>
+              <div class="proj-ui-block">
+                <div class="proj-ui-main">
+                  <div
+                    class="pui-heading"
+                    style="background: rgba(52, 211, 153, 0.3)"
+                  ></div>
+                  <div
+                    style="
+                      display: grid;
+                      grid-template-columns: 1fr 1fr;
+                      gap: 8px;
+                      margin-bottom: 10px;
+                    "
+                  >
+                    <div
+                      style="
+                        height: 40px;
+                        background: rgba(52, 211, 153, 0.08);
+                        border: 1px solid rgba(52, 211, 153, 0.2);
+                        border-radius: 6px;
+                        display: flex;
+                        align-items: center;
+                        padding: 0 8px;
+                        font-size: 0.6rem;
+                        color: var(--green);
+                      "
+                    >
+                      💬 Live Chat
+                    </div>
+                    <div
+                      style="
+                        height: 40px;
+                        background: rgba(99, 102, 241, 0.08);
+                        border: 1px solid rgba(99, 102, 241, 0.2);
+                        border-radius: 6px;
+                        display: flex;
+                        align-items: center;
+                        padding: 0 8px;
+                        font-size: 0.6rem;
+                        color: var(--indigo-lt);
+                      "
+                    >
+                      📋 Feedback
+                    </div>
+                  </div>
+                  <div class="pui-line w75"></div>
+                  <div class="pui-line w50"></div>
+                </div>
+                <div class="proj-ui-side">
+                  <div
+                    class="proj-ui-card"
+                    style="
+                      background: rgba(52, 211, 153, 0.08);
+                      border-color: rgba(52, 211, 153, 0.2);
+                    "
+                  >
+                    <div class="pui-num" style="color: var(--green)">500+</div>
+                    <div class="pui-label">Active users</div>
+                  </div>
+                  <div class="proj-ui-card">
+                    <div class="pui-line w75"></div>
+                    <div class="pui-line w50"></div>
+                  </div>
+                  <div class="proj-ui-card">
+                    <div
+                      class="pui-num"
+                      style="color: var(--sky); font-size: 0.9rem"
+                    >
+                      Real-time
+                    </div>
+                    <div class="pui-label">WebSockets</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="proj-info">
+            <a
+              href="https://truesurvey.in"
+              target="_blank"
+              class="proj-livelink"
+              >Live at truesurvey.in</a
+            >
+            <div class="proj-name">TrueSurvey</div>
+            <div class="proj-tagline">Survey & Civic Analytics Platform</div>
+            <p class="proj-desc">
+              A platform connecting citizens to political representatives —
+              enabling politician feedback, constituency-level issue reporting,
+              and real-time public chat forums. Serves 500+ active users with
+              WebSocket-powered live interactions.
+            </p>
+            <div class="proj-meta">
+              <div class="pm-block">
+                <h4>Key Features</h4>
+                <ul>
+                  <li>Real-time public & constituency chat (WebSockets)</li>
+                  <li>Politician feedback and rating system</li>
+                  <li>Issue reporting with geo-tagging</li>
+                  <li>Analytics dashboard for representatives</li>
+                </ul>
+              </div>
+              <div class="pm-block">
+                <h4>Stack</h4>
+                <div
+                  style="
+                    display: flex;
+                    flex-wrap: wrap;
+                    gap: 6px;
+                    margin-top: 6px;
+                  "
+                >
+                  <span class="chip chip-blue">Django Channels</span
+                  ><span class="chip chip-amber">WebSockets</span
+                  ><span class="chip chip-green">MySQL</span
+                  ><span class="chip chip-violet">DRF</span>
+                </div>
+              </div>
+            </div>
+            <div class="proj-impact">
+              <div class="pi-item">
+                <div class="pi-num">500+</div>
+                <div class="pi-lbl">Active users</div>
+              </div>
+              <div class="pi-item">
+                <div class="pi-num">&lt;1s</div>
+                <div class="pi-lbl">Chat latency</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Krishco -->
+        <div id="proj-krishco" class="proj-panel">
+          <div class="proj-mockup">
+            <div class="proj-mockup-bar">
+              <div class="m-dot" style="background: #ff5f57"></div>
+              <div class="m-dot" style="background: #ffbd2e"></div>
+              <div class="m-dot" style="background: #28ca41"></div>
+            </div>
+            <div class="proj-mockup-screen">
+              <div class="proj-url-bar">🔒 krishcoengineers.com</div>
+              <div class="proj-ui-block">
+                <div class="proj-ui-main">
+                  <div
+                    class="pui-heading"
+                    style="background: rgba(251, 191, 36, 0.3)"
+                  ></div>
+                  <div
+                    style="
+                      display: flex;
+                      gap: 6px;
+                      margin-bottom: 10px;
+                      flex-wrap: wrap;
+                    "
+                  >
+                    <div
+                      style="
+                        padding: 4px 8px;
+                        background: rgba(251, 191, 36, 0.1);
+                        border-radius: 4px;
+                        font-size: 0.6rem;
+                        color: var(--amber);
+                        border: 1px solid rgba(251, 191, 36, 0.2);
+                      "
+                    >
+                      📦 QR Product
+                    </div>
+                    <div
+                      style="
+                        padding: 4px 8px;
+                        background: rgba(56, 189, 248, 0.1);
+                        border-radius: 4px;
+                        font-size: 0.6rem;
+                        color: var(--sky);
+                        border: 1px solid rgba(56, 189, 248, 0.2);
+                      "
+                    >
+                      📋 Orders
+                    </div>
+                  </div>
+                  <div class="pui-line w75"></div>
+                  <div class="pui-line w50"></div>
+                  <div class="pui-line w40"></div>
+                </div>
+                <div class="proj-ui-side">
+                  <div
+                    class="proj-ui-card"
+                    style="
+                      background: rgba(251, 191, 36, 0.08);
+                      border-color: rgba(251, 191, 36, 0.2);
+                    "
+                  >
+                    <div class="pui-num" style="color: var(--amber)">-40%</div>
+                    <div class="pui-label">Tracking errors</div>
+                  </div>
+                  <div class="proj-ui-card">
+                    <div class="pui-line w75"></div>
+                    <div class="pui-line w50"></div>
+                  </div>
+                  <div class="proj-ui-card">
+                    <div
+                      class="pui-num"
+                      style="color: var(--green); font-size: 0.85rem"
+                    >
+                      QR Track
+                    </div>
+                    <div class="pui-label">System</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="proj-info">
+            <a
+              href="https://krishcoengineers.com"
+              target="_blank"
+              class="proj-livelink"
+              >Live at krishcoengineers.com</a
+            >
+            <div class="proj-name">Krishco Engineers ERP</div>
+            <div class="proj-tagline">Manufacturing & Sales ERP System</div>
+            <p class="proj-desc">
+              A full ERP solution for a manufacturing company — handling QR and
+              non-QR product tracking, inventory management, sales reporting,
+              and workflow automation. Reduced manual tracking errors by 40% in
+              production use.
+            </p>
+            <div class="proj-meta">
+              <div class="pm-block">
+                <h4>Key Features</h4>
+                <ul>
+                  <li>QR code product tracking and scanning</li>
+                  <li>Manufacturing workflow management</li>
+                  <li>Sales and inventory reporting</li>
+                  <li>Role-based access for warehouse staff</li>
+                </ul>
+              </div>
+              <div class="pm-block">
+                <h4>Stack</h4>
+                <div
+                  style="
+                    display: flex;
+                    flex-wrap: wrap;
+                    gap: 6px;
+                    margin-top: 6px;
+                  "
+                >
+                  <span class="chip chip-blue">Django</span
+                  ><span class="chip chip-violet">DRF</span
+                  ><span class="chip chip-green">MySQL</span
+                  ><span class="chip chip-indigo">RBAC</span
+                  ><span class="chip chip-amber">QR</span>
+                </div>
+              </div>
+            </div>
+            <div class="proj-impact">
+              <div class="pi-item">
+                <div class="pi-num">40%</div>
+                <div class="pi-lbl">Error reduction</div>
+              </div>
+              <div class="pi-item">
+                <div class="pi-num">Full Stack</div>
+                <div class="pi-lbl">Developer role</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ──────────────── METRICS ──────────────── -->
+    <section id="metrics" class="section">
+      <div class="inner">
+        <div class="section-badge">Business Impact</div>
+        <h2 class="sh">Achievements in <span>Numbers</span></h2>
+        <p class="sub">
+          Measured results from production systems — not estimates.
+        </p>
+        <div class="metrics-grid reveal">
+          <div class="metric-card mc-blue">
+            <div class="metric-icon">🔌</div>
+            <div class="metric-num">50+</div>
+            <div class="metric-label">REST APIs Built</div>
+            <div class="metric-sub">Django & DRF · across 4+ products</div>
+          </div>
+          <div class="metric-card mc-violet">
+            <div class="metric-icon">👥</div>
+            <div class="metric-num">1K+</div>
+            <div class="metric-label">Daily Active Users</div>
+            <div class="metric-sub">across production applications</div>
+          </div>
+          <div class="metric-card mc-green">
+            <div class="metric-icon">⚡</div>
+            <div class="metric-num">500+</div>
+            <div class="metric-label">Concurrent Users</div>
+            <div class="metric-sub">WebSocket system · &lt;1s latency</div>
+          </div>
+          <div class="metric-card mc-amber">
+            <div class="metric-icon">🚀</div>
+            <div class="metric-num">4+</div>
+            <div class="metric-label">Production Apps</div>
+            <div class="metric-sub">Live and serving real users today</div>
+          </div>
+          <div class="metric-card mc-indigo">
+            <div class="metric-icon">📉</div>
+            <div class="metric-num">30%</div>
+            <div class="metric-label">Faster API Responses</div>
+            <div class="metric-sub">Measured in production deployment</div>
+          </div>
+          <div class="metric-card mc-rose">
+            <div class="metric-icon">🛡️</div>
+            <div class="metric-num">40%</div>
+            <div class="metric-label">Security Incidents Down</div>
+            <div class="metric-sub">JWT + RBAC implementation</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ──────────────── GITHUB ──────────────── -->
+    <section id="github" class="section">
+      <div class="inner">
+        <div class="section-badge">Open Source</div>
+        <h2 class="sh"><span>GitHub</span> Activity</h2>
+        <p class="sub">
+          Consistent contributions year-round — practice projects, experiments,
+          and open source.
+        </p>
+        <div class="gh-grid reveal">
+          <div class="gh-contrib">
+            <h3>
+              📊 Contribution Activity
+              <span
+                style="
+                  font-size: 0.75rem;
+                  color: var(--text-3);
+                  font-weight: 400;
+                "
+                >(github.com/shivam-singh-coder)</span
+              >
+            </h3>
+            <div class="contrib-grid" id="contrib-grid"></div>
+            <div
+              style="
+                display: flex;
+                align-items: center;
+                gap: 8px;
+                margin-top: 14px;
+                font-size: 0.7rem;
+                color: var(--text-3);
+              "
+            >
+              <span>Less</span>
+              <div
+                style="
+                  width: 12px;
+                  height: 12px;
+                  border-radius: 2px;
+                  background: rgba(255, 255, 255, 0.04);
+                "
+              ></div>
+              <div
+                style="
+                  width: 12px;
+                  height: 12px;
+                  border-radius: 2px;
+                  background: rgba(99, 102, 241, 0.2);
+                "
+              ></div>
+              <div
+                style="
+                  width: 12px;
+                  height: 12px;
+                  border-radius: 2px;
+                  background: rgba(99, 102, 241, 0.4);
+                "
+              ></div>
+              <div
+                style="
+                  width: 12px;
+                  height: 12px;
+                  border-radius: 2px;
+                  background: rgba(99, 102, 241, 0.65);
+                "
+              ></div>
+              <div
+                style="
+                  width: 12px;
+                  height: 12px;
+                  border-radius: 2px;
+                  background: var(--indigo);
+                "
+              ></div>
+              <span>More</span>
+            </div>
+          </div>
+          <div class="gh-repos">
+            <div class="gh-repo">
+              <div class="gr-name">🐍 django-rest-boilerplate</div>
+              <div class="gr-desc">
+                Production-ready Django REST API template with JWT, RBAC, and
+                middleware
+              </div>
+              <div class="gr-meta">
+                <span class="gr-tag">⭐ Python</span
+                ><span class="gr-tag">🔀 Django</span>
+              </div>
+            </div>
+            <div class="gh-repo">
+              <div class="gr-name">⚡ django-channels-chat</div>
+              <div class="gr-desc">
+                Real-time chat implementation using Django Channels & WebSockets
+              </div>
+              <div class="gr-meta">
+                <span class="gr-tag">⭐ Python</span
+                ><span class="gr-tag">🔀 WebSocket</span>
+              </div>
+            </div>
+            <div class="gh-repo">
+              <div class="gr-name">📊 mysql-query-optimizer</div>
+              <div class="gr-desc">
+                Collection of Django ORM optimization patterns and examples
+              </div>
+              <div class="gr-meta">
+                <span class="gr-tag">⭐ Python</span
+                ><span class="gr-tag">🔀 MySQL</span>
+              </div>
+            </div>
+            <div class="gh-repo">
+              <div class="gr-name">🔐 rbac-middleware</div>
+              <div class="gr-desc">
+                Custom Role-Based Access Control middleware for Django
+                applications
+              </div>
+              <div class="gr-meta">
+                <span class="gr-tag">⭐ Python</span
+                ><span class="gr-tag">🔀 Security</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ──────────────── TESTIMONIALS ──────────────── -->
+    <section id="testimonials" class="section">
+      <div class="inner">
+        <div class="section-badge">Social Proof</div>
+        <h2 class="sh">What People <span>Say</span></h2>
+        <div class="test-grid reveal">
+          <div class="test-card">
+            <div class="test-stars">★★★★★</div>
+            <div class="test-text">
+              "Shivam consistently delivers APIs that are clean,
+              well-documented, and performant. The real-time chat system he
+              built handles our peak load without breaking a sweat. Rare to find
+              a junior dev who thinks about scalability from day one."
+            </div>
+            <div class="test-author">
+              <div
+                class="test-avatar"
+                style="background: linear-gradient(135deg, #6366f1, #a78bfa)"
+              >
+                RK
+              </div>
+              <div>
+                <div class="test-name">R. Kumar</div>
+                <div class="test-title">Tech Lead · Rays Edutech</div>
+              </div>
+            </div>
+          </div>
+          <div class="test-card">
+            <div class="test-stars">★★★★★</div>
+            <div class="test-text">
+              "The Collegesewa portal Shivam built completely transformed how we
+              handle admissions. Applications that used to require manual
+              follow-up are now tracked automatically. He understood the
+              business problem, not just the technical one."
+            </div>
+            <div class="test-author">
+              <div
+                class="test-avatar"
+                style="background: linear-gradient(135deg, #38bdf8, #6366f1)"
+              >
+                AS
+              </div>
+              <div>
+                <div class="test-name">A. Sharma</div>
+                <div class="test-title">Client · Collegesewa</div>
+              </div>
+            </div>
+          </div>
+          <div class="test-card">
+            <div class="test-stars">★★★★★</div>
+            <div class="test-text">
+              "When we needed the ERP to track thousands of products with QR
+              codes, Shivam designed a system that just works — even our floor
+              staff with minimal tech experience can use it. The 40% reduction
+              in errors is something we measured ourselves."
+            </div>
+            <div class="test-author">
+              <div
+                class="test-avatar"
+                style="background: linear-gradient(135deg, #fbbf24, #f97316)"
+              >
+                PV
+              </div>
+              <div>
+                <div class="test-name">P. Verma</div>
+                <div class="test-title">Director · Krishco Engineers</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ──────────────── BLOGS ──────────────── -->
+    <section id="blogs" class="section">
+      <div class="inner">
+        <div class="section-badge">Technical Writing</div>
+        <h2 class="sh">Developer <span>Articles</span></h2>
+        <p class="sub">
+          Writing about what I learn while building — real problems, real
+          solutions.
+        </p>
+        <div class="blog-grid reveal">
+          <div class="blog-card">
+            <div
+              class="blog-thumb"
+              style="
+                background: linear-gradient(
+                  135deg,
+                  rgba(99, 102, 241, 0.2),
+                  rgba(56, 189, 248, 0.1)
+                );
+              "
+            >
+              ⚡
+            </div>
+            <div class="blog-body">
+              <span class="blog-tag">Django · WebSockets</span>
+              <div class="blog-title">
+                Building a Real-Time Chat System with Django Channels
+              </div>
+              <p class="blog-excerpt">
+                How I designed and deployed a WebSocket-based chat that handles
+                500+ concurrent users with sub-second latency — and what I'd do
+                differently now.
+              </p>
+              <div class="blog-meta">
+                <span>8 min read</span><span class="blog-read">Read →</span>
+              </div>
+            </div>
+          </div>
+          <div class="blog-card">
+            <div
+              class="blog-thumb"
+              style="
+                background: linear-gradient(
+                  135deg,
+                  rgba(52, 211, 153, 0.15),
+                  rgba(56, 189, 248, 0.1)
+                );
+              "
+            >
+              🔒
+            </div>
+            <div class="blog-body">
+              <span class="blog-tag">Django · Security</span>
+              <div class="blog-title">
+                JWT Authentication & RBAC in Django — a Production Pattern
+              </div>
+              <p class="blog-excerpt">
+                The custom token authentication and role-based permission
+                pattern I use across all my Django projects, with middleware
+                that enforces it at the route level.
+              </p>
+              <div class="blog-meta">
+                <span>6 min read</span><span class="blog-read">Read →</span>
+              </div>
+            </div>
+          </div>
+          <div class="blog-card">
+            <div
+              class="blog-thumb"
+              style="
+                background: linear-gradient(
+                  135deg,
+                  rgba(251, 191, 36, 0.15),
+                  rgba(249, 115, 22, 0.1)
+                );
+              "
+            >
+              🐬
+            </div>
+            <div class="blog-body">
+              <span class="blog-tag">MySQL · Django ORM</span>
+              <div class="blog-title">
+                MySQL Query Optimization in Django — From 5s to 140ms
+              </div>
+              <p class="blog-excerpt">
+                The specific indexing, select_related, and prefetch_related
+                patterns that took a critical query from 5 seconds to under
+                200ms in production at 10K records/day.
+              </p>
+              <div class="blog-meta">
+                <span>10 min read</span><span class="blog-read">Read →</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ──────────────── CONTACT ──────────────── -->
+    <section id="contact" class="section">
+      <div class="inner">
+        <div class="section-badge">Get in Touch</div>
+        <div class="contact-grid reveal">
+          <div>
+            <h2 class="contact-headline">
+              Let's build<br />something
+              <span
+                style="
+                  background: linear-gradient(
+                    135deg,
+                    var(--sky),
+                    var(--indigo-lt)
+                  );
+                  -webkit-background-clip: text;
+                  -webkit-text-fill-color: transparent;
+                "
+                >great</span
+              ><br />together.
+            </h2>
+            <p class="contact-sub">
+              I'm currently open to full-time backend/full-stack roles. If
+              you're building something interesting with Python, Django, or
+              real-time systems — I'd love to hear about it.
+            </p>
+            <div class="contact-items">
+              <a href="mailto:shivamsingh.dev03@gmail.com" class="contact-item">
+                <div
+                  class="ci-icon"
+                  style="background: rgba(99, 102, 241, 0.15)"
+                >
+                  ✉️
+                </div>
+                <div>
+                  <span class="ci-label">Email</span
+                  ><span class="ci-value">shivamsingh.dev03@gmail.com</span>
+                </div>
+              </a>
+              <a href="tel:+917617839389" class="contact-item">
+                <div
+                  class="ci-icon"
+                  style="background: rgba(52, 211, 153, 0.1)"
+                >
+                  📱
+                </div>
+                <div>
+                  <span class="ci-label">Phone</span
+                  ><span class="ci-value">+91 76178 39389</span>
+                </div>
+              </a>
+              <a
+                href="https://linkedin.com/in/shivam-singh-coder"
+                target="_blank"
+                class="contact-item"
+              >
+                <div
+                  class="ci-icon"
+                  style="background: rgba(56, 189, 248, 0.1)"
+                >
+                  🔗
+                </div>
+                <div>
+                  <span class="ci-label">LinkedIn</span
+                  ><span class="ci-value"
+                    >linkedin.com/in/shivam-singh-coder</span
+                  >
+                </div>
+              </a>
+              <a
+                href="https://github.com/shivam-singh-coder"
+                target="_blank"
+                class="contact-item"
+              >
+                <div
+                  class="ci-icon"
+                  style="background: rgba(255, 255, 255, 0.06)"
+                >
+                  💻
+                </div>
+                <div>
+                  <span class="ci-label">GitHub</span
+                  ><span class="ci-value">github.com/shivam-singh-coder</span>
+                </div>
+              </a>
+            </div>
+          </div>
+          <div class="contact-card">
+            <div class="cc-title">Quick Info for Recruiters</div>
+            <div class="cc-available">
+              <span></span> Actively looking · Available immediately
+            </div>
+            <div class="cc-info">
+              <div class="cc-row">
+                <span class="lbl">Location</span
+                ><span class="val">Patna, Bihar, India</span>
+              </div>
+              <div class="cc-row">
+                <span class="lbl">Experience</span
+                ><span class="val">2+ Years · Full Stack</span>
+              </div>
+              <div class="cc-row">
+                <span class="lbl">Primary</span
+                ><span class="val">Python · Django · DRF · MySQL</span>
+              </div>
+              <div class="cc-row">
+                <span class="lbl">Degree</span
+                ><span class="val">BCA · MCA (pursuing)</span>
+              </div>
+              <div class="cc-row">
+                <span class="lbl">Open to</span
+                ><span class="val">Full-time · Remote / Onsite</span>
+              </div>
+              <div class="cc-row">
+                <span class="lbl">Notice</span
+                ><span class="val" style="color: var(--green); font-weight: 600"
+                  >Immediate</span
+                >
+              </div>
+            </div>
+            <div class="cc-actions">
+              <a
+                href="mailto:shivamsingh.dev03@gmail.com"
+                class="btn btn-primary"
+                style="text-align: center; justify-content: center"
+                >⚡ Schedule Interview</a
+              >
+              <a
+                href="#"
+                class="btn btn-sky"
+                style="text-align: center; justify-content: center"
+                onclick="alert('Add your resume PDF link here')"
+                >↓ Download Resume</a
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ──────────────── FOOTER ──────────────── -->
+    <footer>
+      <div class="footer-brand">
+        <strong>Shivam Singh</strong> · Full Stack Developer
+      </div>
+      <div class="footer-copy">© 2025 · Built with care · Patna, India</div>
+      <div class="footer-links">
+        <a href="https://github.com/shivam-singh-coder" target="_blank"
+          >GitHub</a
+        >
+        <a href="https://linkedin.com/in/shivam-singh-coder" target="_blank"
+          >LinkedIn</a
+        >
+        <a href="mailto:shivamsingh.dev03@gmail.com">Email</a>
+      </div>
+    </footer>
+
+    <script>
+      /* ── Contribution grid generation ── */
+      (function () {
+        const grid = document.getElementById("contrib-grid");
+        const levels = [0, 0, 0, 0, 1, 1, 1, 2, 2, 3, 4]; // weighted
+        for (let i = 0; i < 52 * 7; i++) {
+          const d = document.createElement("div");
+          const l = levels[Math.floor(Math.random() * levels.length)];
+          d.className = "contrib-cell c-" + l;
+          grid.appendChild(d);
+        }
+      })();
+
+      /* ── Scroll reveal ── */
+      const obs = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((e) => {
+            if (e.isIntersecting) {
+              e.target.classList.add("visible");
+            }
+          });
+        },
+        { threshold: 0.08 },
+      );
+      document.querySelectorAll(".reveal").forEach((el) => obs.observe(el));
+
+      /* ── Skill tabs ── */
+      function switchTab(id, btn) {
+        document
+          .querySelectorAll(".skills-panel")
+          .forEach((p) => p.classList.remove("active"));
+        document
+          .querySelectorAll(".stab")
+          .forEach((b) => b.classList.remove("active"));
+        document.getElementById("tab-" + id).classList.add("active");
+        btn.classList.add("active");
+      }
+
+      /* ── Project nav ── */
+      function switchProj(id, btn) {
+        document
+          .querySelectorAll(".proj-panel")
+          .forEach((p) => p.classList.remove("active"));
+        document
+          .querySelectorAll(".pnav-btn")
+          .forEach((b) => b.classList.remove("active"));
+        document.getElementById("proj-" + id).classList.add("active");
+        btn.classList.add("active");
+      }
+
+      /* ── Nav scroll effect ── */
+      window.addEventListener("scroll", () => {
+        const nav = document.getElementById("nav");
+        nav.style.background =
+          window.scrollY > 60 ? "rgba(5,7,9,0.95)" : "rgba(5,7,9,0.75)";
+      });
+
+      /* ── Mobile nav ── */
+      document
+        .querySelector(".nav-mobile-toggle")
+        ?.addEventListener("click", () => {
+          const nl = document.querySelector(".nav-links");
+          const open = nl.style.display === "flex";
+          nl.style.cssText = open
+            ? ""
+            : `
+    display:flex;flex-direction:column;position:fixed;top:60px;left:0;right:0;
+    background:rgba(8,12,20,0.98);padding:20px;gap:4px;border-bottom:1px solid var(--border);
+    backdrop-filter:blur(20px);z-index:199;
+  `;
+        });
+
+      /* ── Skill bar animation on scroll ── */
+      const skillObs = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((e) => {
+            if (e.isIntersecting) {
+              e.target.querySelectorAll(".si-fill").forEach((b) => {
+                const w = b.style.width;
+                b.style.width = "0";
+                setTimeout(() => {
+                  b.style.width = w;
+                }, 100);
+              });
+            }
+          });
+        },
+        { threshold: 0.2 },
+      );
+      document
+        .querySelectorAll(".skills-panel")
+        .forEach((p) => skillObs.observe(p));
+    </script>
+  </body>
+</html>
