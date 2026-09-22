@@ -132,7 +132,7 @@ Java-based desktop application with modern UI and robust functionality.
 - 💼 [LinkedIn](http://www.linkedin.com/in/shivam-singh-coder)  
 - 👨‍💻 [GitHub](https://github.com/Shivam-Singh-Coder/)  
 - 🌐 [Portfolio](https://shivam-singh-coder.github.io/Shivam-Singh-Coder/)  
-- 📧 [shivwebdeveloper.rays@gmail.com](mailto:shivamsingh.dev03@gmail.com)  
+- 📧 [shivamsingh.dev03@gmail.com](mailto:shivamsingh.dev03@gmail.com)  
 - 📞 +91 7617839389  
 
 ---
