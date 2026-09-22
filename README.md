@@ -1,13 +1,13 @@
-![Shivam Singh Banner](https://raw.githubusercontent.com/Shivam-Singh-Coder/Shivam-Singh-Coder/main/banner.png)
+![Shivam Singh Banner](https://raw.githubusercontent.com/shivam-singh-coder/shivam-singh-coder/main/banner.png)
 <h1 align="center">👋 Welcome to Shivam Singh's Profile</h1>
 
 <p align="center">
-💼 Django & Full Stack Web Developer | 🌍 Based in Patna, Bihar | 📧 <a href="mailto:shivwebdeveloper.rays@gmail.com" target="_blank">Work With Me</a>
+💼 Django & Full Stack Web Developer | 🌍 Based in Patna, Bihar | 📧 <a href="mailto:shivamsingh.dev03@gmail.com" target="_blank">Work With Me</a>
 </p>  
 
 <p align="center">
-  <img src="https://komarev.com/ghpvc/?username=Shivam-Singh-Coder&label=Profile%20Views&color=blue&style=flat" alt="Profile Views" />
-  <img src="https://visitor-badge.laobi.icu/badge?page_id=Shivam-Singh-Coder" alt="Visitor Count" />
+  <img src="https://komarev.com/ghpvc/?username=shivam-singh-coder&label=Profile%20Views&color=blue&style=flat" alt="Profile Views" />
+  <img src="https://visitor-badge.laobi.icu/badge?page_id=shivam-singh-coder" alt="Visitor Count" />
 </p>
 
 ---
@@ -63,13 +63,13 @@ Corporate website for engineering solutions with secure admin panel and dynamic 
 Full-stack contributions across multiple live projects including custom authentication, privileges, and middleware.  
 *Tech Stack: Django, MySQL, HTML, CSS, JavaScript, jQuery, Ajax*  
 
-### 🎓 [EduInfo Admission Academy](https://collegesewa.com/) ![Live](https://img.shields.io/badge/Live-Project-brightgreen)  
+### 🎓 [Collegesewa](https://collegesewa.com/) ![Live](https://img.shields.io/badge/Live-Project-brightgreen)  
 Admission management portal with student registration, course listing, and enquiry handling.  
 *Tech Stack: Django, Bootstrap, MySQL*  
 
-### 🛡️ [Tekward Helmet](https://tekwardhelmet.com/) ![Live](https://img.shields.io/badge/Live-Project-brightgreen)  
-Smart helmet application for real-time monitoring, navigation assistance, and emergency alerts.  
-*Tech Stack: HTML5, CSS3, JavaScript, jQuery, Bootstrap, SMTP (Email)*  
+### 📝 [Testdarpan](https://testdarpan.com/) ![Live](https://img.shields.io/badge/Live-Project-brightgreen)  
+API-based competitive exam preparation platform providing online mock tests, practice sets, study materials, test series, and question archives for SSC, Banking, Railway, and Defence examinations.  
+*Tech Stack: Python, Django, Django REST Framework, MySQL, HTML5, CSS3, JavaScript, jQuery, Bootstrap, SMTP (Email)* 
 
 ### 💻 [RaysApp – Desktop Application](https://github.com/Shivam-Singh-Coder/RaysApp-JAVA/)  
 Java-based desktop application with modern UI and robust functionality.  
@@ -132,8 +132,8 @@ Java-based desktop application with modern UI and robust functionality.
 - 💼 [LinkedIn](http://www.linkedin.com/in/shivam-singh-coder)  
 - 👨‍💻 [GitHub](https://github.com/Shivam-Singh-Coder/)  
 - 🌐 [Portfolio](https://shivam-singh-coder.github.io/Shivam-Singh-Coder/)  
-- 📧 [shivwebdeveloper.rays@gmail.com](mailto:shivwebdeveloper.rays@gmail.com)  
-- 📞 +91 9219286194  
+- 📧 [shivwebdeveloper.rays@gmail.com](mailto:shivamsingh.dev03@gmail.com)  
+- 📞 +91 7617839389  
 
 ---
 
