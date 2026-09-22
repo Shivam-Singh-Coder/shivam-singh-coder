@@ -19,7 +19,7 @@
   &nbsp; • &nbsp;
   <a href="https://github.com/shivam-singh-coder">GitHub</a>
   &nbsp; • &nbsp;
-  <a href="https://shivam-singh-coder.github.io/Shivam-Singh-Coder/">Portfolio</a>
+  <a href="https://shivam-singh-coder.github.io/shivam-singh-coder/">Portfolio</a>
 </p>
 
 <p align="center">
@@ -352,7 +352,7 @@ Lovely Professional University
 <img src="https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white" />
 </a>
 
-<a href="https://shivam-singh-coder.github.io/Shivam-Singh-Coder/">
+<a href="https://shivam-singh-coder.github.io/shivam-singh-coder/">
 <img src="https://img.shields.io/badge/Portfolio-000000?style=for-the-badge&logo=google-chrome&logoColor=white" />
 </a>
 
