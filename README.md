@@ -106,7 +106,7 @@ I'm currently pursuing an **MCA in Artificial Intelligence & Machine Learning at
 ### Full Stack / Backend Developer
 
 **Rays Edutech Private Limited, Patna**  
-`2023 – Present`
+`2024 – Present`
 
 - Developed and deployed **50+ REST APIs** using Django and Django REST Framework.
 - Improved API response time by approximately **30%**.
@@ -120,7 +120,7 @@ I'm currently pursuing an **MCA in Artificial Intelligence & Machine Learning at
 ### Full Stack Development Intern
 
 **Rays Edutech Private Limited, Patna**  
-`2022 – 2023`
+`2023 – 2024`
 
 - Worked on full-stack applications using **Django, Python, HTML, CSS, and JavaScript**.
 - Contributed to **5+ client projects**.
