@@ -1,4 +1,6 @@
-![Shivam Singh Banner](https://raw.githubusercontent.com/shivam-singh-coder/shivam-singh-coder/main/banner.png)
+<p align="center">
+  <img src="./og.png" alt="Shivam Singh Banner" width="100%" />
+</p>
 
 <h1 align="center">👋 Hi, I'm Shivam Singh</h1>
 
@@ -7,8 +9,8 @@
 </p>
 
 <p align="center">
-  📍 Patna, Bihar, India &nbsp; | &nbsp;
-  💼 3+ Years Experience &nbsp; | &nbsp;
+  📍 Patna, Bihar, India &nbsp; • &nbsp;
+  💼 3+ Years Experience &nbsp; • &nbsp;
   🐍 Python & Django
 </p>
 
@@ -17,14 +19,13 @@
   &nbsp; • &nbsp;
   <a href="https://www.linkedin.com/in/shivam-singh-coder/">LinkedIn</a>
   &nbsp; • &nbsp;
-  <a href="https://github.com/shivam-singh-coder">GitHub</a>
+  <a href="https://github.com/Shivam-Singh-Coder">GitHub</a>
   &nbsp; • &nbsp;
   <a href="https://shivam-singh-coder.github.io/shivam-singh-coder/">Portfolio</a>
 </p>
 
 <p align="center">
-  <img src="https://komarev.com/ghpvc/?username=shivam-singh-coder&label=Profile%20Views&color=blue&style=flat" alt="Profile Views" />
-  <img src="https://visitor-badge.laobi.icu/badge?page_id=shivam-singh-coder" alt="Visitors" />
+  <img src="https://komarev.com/ghpvc/?username=Shivam-Singh-Coder&label=Profile%20Views&color=blue&style=flat" alt="Profile Views" />
 </p>
 
 ---
@@ -57,7 +58,7 @@ I'm currently pursuing an **MCA in Artificial Intelligence & Machine Learning at
 
 ![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)
 ![Django](https://img.shields.io/badge/Django-092E20?style=for-the-badge&logo=django&logoColor=white)
-![Django REST](https://img.shields.io/badge/Django%20REST%20Framework-A30000?style=for-the-badge&logo=django&logoColor=white)
+![Django REST Framework](https://img.shields.io/badge/Django%20REST%20Framework-A30000?style=for-the-badge&logo=django&logoColor=white)
 ![REST API](https://img.shields.io/badge/REST%20API-02569B?style=for-the-badge&logo=fastapi&logoColor=white)
 
 ### 🎨 Frontend Development
@@ -79,8 +80,6 @@ I'm currently pursuing an **MCA in Artificial Intelligence & Machine Learning at
 - Custom Middleware
 
 ### 💬 Real-Time Development
-
-![WebSockets](https://img.shields.io/badge/WebSockets-010101?style=for-the-badge&logo=socketdotio&logoColor=white)
 
 - Django Channels
 - WebSockets
@@ -132,8 +131,7 @@ I'm currently pursuing an **MCA in Artificial Intelligence & Machine Learning at
 
 ### 📚 [TestDarpan](https://testdarpan.com/)
 
-**Online Test & Assessment Platform**
-
+**Online Test & Assessment Platform**  
 **Role:** Full Stack Developer
 
 Developed an online examination and assessment platform featuring:
@@ -152,8 +150,7 @@ Developed an online examination and assessment platform featuring:
 
 ### 📊 [TrueSurvey](https://truesurvey.in/)
 
-**Survey & Analytics Platform**
-
+**Survey & Analytics Platform**  
 **Role:** Backend Developer
 
 Built backend functionality for a survey and public feedback platform supporting:
@@ -172,8 +169,7 @@ Built backend functionality for a survey and public feedback platform supporting
 
 ### ⚙️ [Krishco Engineers Pvt. Ltd.](https://krishco.com/)
 
-**ERP-like Manufacturing & Sales System**
-
+**ERP-like Manufacturing & Sales System**  
 **Role:** Full Stack Developer
 
 Developed an ERP-style system for manufacturing and sales operations, including:
@@ -194,8 +190,7 @@ The system helped reduce manual tracking errors by approximately **40%**.
 
 ### 🎓 [CollegeSewa](https://collegesewa.com/)
 
-**Admission Management Portal**
-
+**Admission Management Portal**  
 **Role:** Full Stack Developer
 
 Developed functionality for an admission management platform handling:
@@ -251,59 +246,16 @@ Python
 
 ---
 
-## 📊 GitHub Stats
+## 🧑‍💻 GitHub
 
-<p align="center">
-  <img
-    src="https://github-readme-stats.vercel.app/api?username=Shivam-Singh-Coder&show_icons=true&theme=tokyonight&hide_border=true"
-    alt="Shivam's GitHub Stats"
-    height="180"
-  />
+The previous README used third-party dynamic image services for GitHub stats, contribution graphs, and repository cards. Those services can become unavailable or rate-limited, which causes broken images on GitHub.
 
-  <img
-    src="https://github-readme-stats.vercel.app/api/top-langs/?username=Shivam-Singh-Coder&layout=compact&theme=tokyonight&hide_border=true"
-    alt="Top Languages"
-    height="180"
-  />
-</p>
+This version uses normal GitHub links instead, so the section remains reliable.
 
-<p align="center">
-  <img
-    src="https://github-readme-streak-stats.herokuapp.com/?user=Shivam-Singh-Coder&theme=tokyonight&hide_border=true"
-    alt="GitHub Streak"
-  />
-</p>
-
----
-
-## 📈 Contribution Graph
-
-<p align="center">
-  <img
-    src="https://github-readme-activity-graph.vercel.app/graph?username=Shivam-Singh-Coder&theme=tokyo-night&hide_border=true"
-    alt="GitHub Contribution Graph"
-  />
-</p>
-
----
-
-## 📌 Featured Repositories
-
-<p align="center">
-  <a href="https://github.com/Shivam-Singh-Coder/RaysApp-JAVA">
-    <img
-      src="https://github-readme-stats.vercel.app/api/pin/?username=Shivam-Singh-Coder&repo=RaysApp-JAVA&theme=tokyonight"
-      alt="RaysApp JAVA"
-    />
-  </a>
-
-  <a href="https://github.com/Shivam-Singh-Coder/Shivam-Singh-Coder">
-    <img
-      src="https://github-readme-stats.vercel.app/api/pin/?username=Shivam-Singh-Coder&repo=Shivam-Singh-Coder&theme=tokyonight"
-      alt="GitHub Profile Repository"
-    />
-  </a>
-</p>
+- 👤 **GitHub Profile:** [Shivam-Singh-Coder](https://github.com/Shivam-Singh-Coder)
+- 💻 **RaysApp – Java Desktop Application:** [RaysApp-JAVA](https://github.com/Shivam-Singh-Coder/RaysApp-JAVA)
+- 📌 **GitHub Profile Repository:** [Shivam-Singh-Coder](https://github.com/Shivam-Singh-Coder/Shivam-Singh-Coder)
+- 📈 **Contributions & Activity:** [View GitHub Activity](https://github.com/Shivam-Singh-Coder?tab=overview)
 
 ---
 
@@ -343,28 +295,23 @@ Lovely Professional University
 ## 📫 Connect With Me
 
 <p align="center">
-
-<a href="https://www.linkedin.com/in/shivam-singh-coder/">
-<img src="https://img.shields.io/badge/LinkedIn-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white" />
-</a>
-
-<a href="https://github.com/Shivam-Singh-Coder">
-<img src="https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white" />
-</a>
-
-<a href="https://shivam-singh-coder.github.io/shivam-singh-coder/">
-<img src="https://img.shields.io/badge/Portfolio-000000?style=for-the-badge&logo=google-chrome&logoColor=white" />
-</a>
-
-<a href="mailto:shivamsingh.dev03@gmail.com">
-<img src="https://img.shields.io/badge/Email-D14836?style=for-the-badge&logo=gmail&logoColor=white" />
-</a>
-
+  <a href="https://www.linkedin.com/in/shivam-singh-coder/">
+    <img src="https://img.shields.io/badge/LinkedIn-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white" alt="LinkedIn" />
+  </a>
+  <a href="https://github.com/Shivam-Singh-Coder">
+    <img src="https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white" alt="GitHub" />
+  </a>
+  <a href="https://shivam-singh-coder.github.io/shivam-singh-coder/">
+    <img src="https://img.shields.io/badge/Portfolio-000000?style=for-the-badge&logo=google-chrome&logoColor=white" alt="Portfolio" />
+  </a>
+  <a href="mailto:shivamsingh.dev03@gmail.com">
+    <img src="https://img.shields.io/badge/Email-D14836?style=for-the-badge&logo=gmail&logoColor=white" alt="Email" />
+  </a>
 </p>
 
 <p align="center">
   📧 <strong>shivamsingh.dev03@gmail.com</strong>
-  <br>
+  <br />
   📱 <strong>+91 7617839389</strong>
 </p>
 
