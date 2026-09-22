@@ -19,7 +19,7 @@
   &nbsp; • &nbsp;
   <a href="https://github.com/shivam-singh-coder">GitHub</a>
   &nbsp; • &nbsp;
-  <a href="https://shivam-singh-coder.github.io/Shivam-Singh-Coder/">Portfolio</a>
+  <a href="https://shivam-singh-coder.github.io/shivam-singh-coder/">Portfolio</a>
 </p>
 
 <p align="center">
@@ -106,7 +106,7 @@ I'm currently pursuing an **MCA in Artificial Intelligence & Machine Learning at
 ### Full Stack / Backend Developer
 
 **Rays Edutech Private Limited, Patna**  
-`2023 – Present`
+`2024 – Present`
 
 - Developed and deployed **50+ REST APIs** using Django and Django REST Framework.
 - Improved API response time by approximately **30%**.
@@ -120,7 +120,7 @@ I'm currently pursuing an **MCA in Artificial Intelligence & Machine Learning at
 ### Full Stack Development Intern
 
 **Rays Edutech Private Limited, Patna**  
-`2022 – 2023`
+`2023 – 2024`
 
 - Worked on full-stack applications using **Django, Python, HTML, CSS, and JavaScript**.
 - Contributed to **5+ client projects**.
@@ -352,7 +352,7 @@ Lovely Professional University
 <img src="https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white" />
 </a>
 
-<a href="https://shivam-singh-coder.github.io/Shivam-Singh-Coder/">
+<a href="https://shivam-singh-coder.github.io/shivam-singh-coder/">
 <img src="https://img.shields.io/badge/Portfolio-000000?style=for-the-badge&logo=google-chrome&logoColor=white" />
 </a>
 
