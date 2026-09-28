@@ -207,6 +207,23 @@ Developed functionality for an admission management platform handling:
 
 ---
 
+### 🚚 [Patliputra Logistics](https://pcplpatna.com/)
+
+**C&F Depot Management Platform**  
+**Role:** Full Stack Developer
+
+Built a centralized platform for a C&F company to manage services across more than 10 depots, including:
+
+- Separate software workflows for each depot
+- Centralized depot and service management
+- Database-driven operational tracking
+- Responsive interfaces for day-to-day business use
+
+**Tech Stack:**  
+`Python` `Django` `MySQL` `HTML5` `CSS3` `JavaScript` `Bootstrap`
+
+---
+
 ## ⚡ Core Django Expertise
 
 ```text
