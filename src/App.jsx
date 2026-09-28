@@ -61,8 +61,8 @@ const projects = [
   },
   {
     name: "CollegeSewa",
-    type: "Admission Management Portal · Full Stack Developer",
-    description: "Created university and program listings, student registration, application workflows, lead generation, and enquiry management for 1,000+ applications.",
+    type: "Three-Application Education Platform · Full Stack Developer",
+    description: "Delivered a connected ecosystem: Web CollegeSewa for universities, programs, notifications, user control, and platform operations; LMS CollegeSewa for lead management; and Admission CollegeSewa for complete admission workflows.",
     link: "https://collegesewa.com/",
     color: "#ef8dad",
     tags: ["Django", "DRF", "MySQL", "Bootstrap"],

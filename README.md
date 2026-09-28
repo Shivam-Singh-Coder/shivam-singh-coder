@@ -190,17 +190,16 @@ The system helped reduce manual tracking errors by approximately **40%**.
 
 ### 🎓 [CollegeSewa](https://collegesewa.com/)
 
-**Admission Management Portal**  
+**Three-Application Education Platform**  
 **Role:** Full Stack Developer
 
-Developed functionality for an admission management platform handling:
+Developed a connected CollegeSewa ecosystem consisting of three applications:
 
-- University and program listings
-- Student registration
-- Admission applications
-- Lead generation
-- Enquiry management
-- 1,000+ applications
+- **Web CollegeSewa:** University and program management, notifications, user control, student-facing information, and other core platform operations
+- **LMS CollegeSewa:** Lead capture, assignment, follow-up, enquiry management, and lead-related workflows
+- **Admission CollegeSewa:** Student registration, admission applications, document and application processing, and admission-related workflows
+
+The platform supports more than **1,000 admission applications**.
 
 **Tech Stack:**  
 `Python` `Django` `Django REST Framework` `MySQL` `HTML5` `CSS3` `JavaScript` `Bootstrap`
