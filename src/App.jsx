@@ -68,13 +68,20 @@ const projects = [
     tags: ["Django", "DRF", "MySQL", "Bootstrap"],
   },
   {
+    name: "The Twin Flame Luxury Candles",
+    type: "Luxury Candle Platform · Node.js Backend Developer",
+    description: "Recently started developing the Node.js backend and server-side functionality, while collaborating with another developer who is building the customer-facing website in Next.js.",
+    color: "#d7a46f",
+    status: "In progress",
+    tags: ["Node.js", "JavaScript", "Backend Development", "Team Collaboration"],
+  },
+  {
     name: "Patliputra Logistics",
     type: "C&F Depot Management Platform · Full Stack Developer",
     description: "Built a centralized platform for a C&F company to manage services across more than 10 depots, with separate software workflows tailored to each depot.",
     link: "https://pcplpatna.com/",
     color: "#72d6a5",
     tags: ["Python", "Django", "MySQL", "JavaScript", "Bootstrap"],
-    wide: true,
   },
 ];
 
@@ -154,7 +161,7 @@ function App() {
 
       <section id="experience"><div className="container"><SectionHeading kicker="Experience" title="Production work, measurable results.">More than three years at Rays Edutech, progressing from a full-stack intern to a backend and full-stack developer.</SectionHeading><div className="timeline reveal">{jobs.map((job) => <article className="panel job" key={job.title}><div className="job-top"><div><h3>{job.title}</h3><p className="company">{job.company}</p></div><span className="date">{job.date}</span></div><ul>{job.points.map((point) => <li key={point}>{point}</li>)}</ul></article>)}</div></div></section>
 
-      <section id="projects"><div className="container"><SectionHeading kicker="Selected projects" title="Platforms built for real users.">Client and production work across assessment, public feedback, manufacturing, education, and logistics.</SectionHeading><div className="projects reveal">{projects.map((project, index) => <article className={`panel project${project.wide ? " project-wide" : ""}`} style={{ "--project-color": project.color }} key={project.name}><div className="project-top"><span className="index">{String(index + 1).padStart(2, "0")} / {String(projects.length).padStart(2, "0")}</span><a className="project-link" href={project.link} target="_blank" rel="noopener noreferrer">Live site ↗</a></div><h3>{project.name}</h3><div className="project-type">{project.type}</div><p>{project.description}</p><Tags items={project.tags}/></article>)}</div></div></section>
+      <section id="projects"><div className="container"><SectionHeading kicker="Selected projects" title="Platforms built for real users.">Client and production work across assessment, public feedback, manufacturing, education, logistics, and e-commerce.</SectionHeading><div className="projects reveal">{projects.map((project, index) => <article className={`panel project${project.wide ? " project-wide" : ""}`} style={{ "--project-color": project.color }} key={project.name}><div className="project-top"><span className="index">{String(index + 1).padStart(2, "0")} / {String(projects.length).padStart(2, "0")}</span>{project.link ? <a className="project-link" href={project.link} target="_blank" rel="noopener noreferrer">Live site ↗</a> : <span className="project-status">{project.status}</span>}</div><h3>{project.name}</h3><div className="project-type">{project.type}</div><p>{project.description}</p><Tags items={project.tags}/></article>)}</div></div></section>
 
       <section id="education"><div className="container"><SectionHeading kicker="Education & credentials" title="Always learning, always building.">Formal study in computer applications, current specialization in AI and machine learning, and practical technical training.</SectionHeading><div className="education reveal"><div className="panel list">{education.map(([title, place, meta]) => <article className="item" key={title}><h3>{title}</h3><p>{place}</p><div className="meta">{meta}</div></article>)}</div><div className="panel list">{certifications.map(([title, place]) => <article className="item" key={title}><h3>{title}</h3><p>{place}</p></article>)}</div></div></div></section>
 

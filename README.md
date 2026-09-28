@@ -206,6 +206,24 @@ The platform supports more than **1,000 admission applications**.
 
 ---
 
+### 🕯️ The Twin Flame Luxury Candles
+
+**Luxury Candle Platform — In Progress**
+
+**Role:** Node.js Backend Developer
+
+Recently started working on this project as part of a collaborative development team:
+
+- Developing the backend and server-side functionality using **Node.js**
+- Collaborating with another developer who is building the customer-facing website using **Next.js**
+- Contributing to the backend foundation and ongoing development of the luxury candle platform
+
+**Tech Stack:**
+
+`Node.js` `JavaScript` `Backend Development` `Next.js (Collaborator)`
+
+---
+
 ### 🚚 [Patliputra Logistics](https://pcplpatna.com/)
 
 **C&F Depot Management Platform**  
